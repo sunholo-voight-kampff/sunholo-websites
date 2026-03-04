@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Lumière Photography — enquire about weddings, landscape commissions, or fine art prints." />
+  <title>Contact — Lumière Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Contact-specific inline overrides */
+    .contact-availability {
+      background: var(--bg-warm);
+      border: 1px solid var(--border);
+      padding: var(--space-md);
+      margin-top: var(--space-md);
+      border-radius: var(--radius);
+    }
+    .avail-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-dk);
+      margin-bottom: var(--space-sm);
+    }
+    .avail-months {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .month-tag {
+      font-size: 0.75rem;
+      padding: 0.3em 0.9em;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--secondary);
+      background: var(--white);
+    }
+    .month-tag.limited {
+      border-color: var(--accent);
+      color: var(--accent-dk);
+    }
+    .month-tag.available {
+      border-color: #6a9a6a;
+      color: #4a7a4a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== Navigation ====== -->
+  <header class="site-header" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="Home">Lumière</a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+      <label for="nav-toggle" class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+    <nav class="nav-mobile" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ====== Page Hero ====== -->
+    <section class="page-hero" aria-label="Page header">
+      <div class="container">
+        <p class="section-label">Get in Touch</p>
+        <h1>Let's Talk</h1>
+        <p>I'd love to hear about your wedding, your landscape dream, or simply your love of photography.</p>
+      </div>
+    </section>
+
+    <!-- ====== Contact ====== -->
+    <section class="section" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading" class="visually-hidden">Contact Form and Information</h2>
+        <div class="contact-grid">
+
+          <!-- Info Column -->
+          <div>
+            <div class="contact-info">
+              <p class="section-label">Details</p>
+              <h3>Find Me Here</h3>
+
+              <div class="contact-item">
+                <div class="contact-icon" aria-hidden="true">✉</div>
+                <div class="contact-detail">
+                  <strong>Email</strong>
+                  <span>hello@lumiere.photo</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon" aria-hidden="true">📍</div>
+                <div class="contact-detail">
+                  <strong>Based in</strong>
+                  <span>United Kingdom — available to travel</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon" aria-hidden="true">⏱</div>
+                <div class="contact-detail">
+                  <strong>Response time</strong>
+                  <span>Within 48 hours, usually sooner</span>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon" aria-hidden="true">📸</div>
+                <div class="contact-detail">
+                  <strong>Instagram</strong>
+                  <span>@lumiere.photo</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Availability calendar -->
+            <div class="contact-availability">
+              <p class="avail-title">2026 Wedding Availability</p>
+              <div class="avail-months">
+                <span class="month-tag">Jan ✓</span>
+                <span class="month-tag available">Feb</span>
+                <span class="month-tag available">Mar</span>
+                <span class="month-tag limited">Apr</span>
+                <span class="month-tag limited">May</span>
+                <span class="month-tag" style="background:#f5f0eb; color:#888; border-color:#ccc;">Jun ✗</span>
+                <span class="month-tag" style="background:#f5f0eb; color:#888; border-color:#ccc;">Jul ✗</span>
+                <span class="month-tag limited">Aug</span>
+                <span class="month-tag available">Sep</span>
+                <span class="month-tag available">Oct</span>
+                <span class="month-tag available">Nov</span>
+                <span class="month-tag available">Dec</span>
+              </div>
+              <p style="font-size:0.72rem; color:var(--text-light); margin-top:0.75rem; margin-bottom:0;">
+                <span style="color:#4a7a4a; font-weight:600;">Green</span> = available &nbsp;
+                <span style="color:var(--accent-dk); font-weight:600;">Amber</span> = limited dates &nbsp;
+                ✗ = fully booked
+              </p>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="contact-form">
+            <p class="section-label">Send a Message</p>
+            <h3 style="margin-bottom:var(--space-md);">Tell Me About Your Project</h3>
+
+            <form action="#" method="post" novalidate aria-label="Contact form">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                <div class="form-row">
+                  <label for="first-name">First Name</label>
+                  <input type="text" id="first-name" name="first-name" placeholder="Jane" autocomplete="given-name" />
+                </div>
+                <div class="form-row">
+                  <label for="last-name">Last Name</label>
+                  <input type="text" id="last-name" name="last-name" placeholder="Smith" autocomplete="family-name" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="jane@example.com" autocomplete="email" />
+              </div>
+
+              <div class="form-row">
+                <label for="enquiry-type">Enquiry Type</label>
+                <select id="enquiry-type" name="enquiry-type">
+                  <option value="" disabled selected>Select a category…</option>
+                  <option value="wedding">Wedding Photography</option>
+                  <option value="landscape">Landscape Commission</option>
+                  <option value="print">Fine Art Print</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="wedding-date">Wedding / Shoot Date <span style="color:var(--text-light); font-weight:400;">(if known)</span></label>
+                <input type="date" id="wedding-date" name="wedding-date" />
+              </div>
+
+              <div class="form-row">
+                <label for="location">Location or Venue</label>
+                <input type="text" id="location" name="location" placeholder="e.g. Lake District, Cotswolds…" />
+              </div>
+
+              <div class="form-row">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Tell me a little about your day, your vision, or what you're looking for…"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;">Send Enquiry</button>
+              <p class="form-note">I'll be in touch within 48 hours. No obligation whatsoever.</p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== FAQ ====== -->
+    <section class="section section--warm" aria-labelledby="faq-heading">
+      <div class="container" style="max-width:780px;">
+        <div class="section-header">
+          <p class="section-label">Questions</p>
+          <h2 id="faq-heading">Common Enquiries</h2>
+          <div class="divider" aria-hidden="true"></div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:1.5rem;">
+
+          <div style="border-bottom:1px solid var(--border); padding-bottom:1.5rem;">
+            <h3 style="font-size:1.1rem; margin-bottom:0.5rem;">How far in advance should I book for a wedding?</h3>
+            <p>Popular dates in spring and summer fill 12–18 months ahead. If you have a fixed date, enquire as soon as possible. Off-peak dates (autumn, winter) are often available with less notice.</p>
+          </div>
+
+          <div style="border-bottom:1px solid var(--border); padding-bottom:1.5rem;">
+            <h3 style="font-size:1.1rem; margin-bottom:0.5rem;">Do you travel for landscape commissions?</h3>
+            <p>Yes — I travel throughout the British Isles and Europe. Travel costs are discussed transparently during the booking process. I'm particularly happy to head somewhere remote.</p>
+          </div>
+
+          <div style="border-bottom:1px solid var(--border); padding-bottom:1.5rem;">
+            <h3 style="font-size:1.1rem; margin-bottom:0.5rem;">What's included in wedding packages?</h3>
+            <p>All wedding bookings include a pre-wedding consultation, full-day coverage, a private online gallery of edited high-resolution images, and a handcrafted USB keepsake. Albums are available as an add-on.</p>
+          </div>
+
+          <div>
+            <h3 style="font-size:1.1rem; margin-bottom:0.5rem;">Can I commission a specific landscape location?</h3>
+            <p>Absolutely. If you have a location in mind — a place that means something to you — I'd love to discuss it. Commission shoots can be arranged for personal gift prints, interior art, or property photography.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== Footer ====== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-brand">Lumière</p>
+          <p class="footer-tagline">Landscapes &amp; Weddings Photography</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="gallery.html#landscapes">Landscapes</a></li>
+            <li><a href="gallery.html#weddings">Weddings</a></li>
+            <li><a href="contact.html">Fine Art Prints</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Enquire</a></li>
+            <li><a href="mailto:hello@lumiere.photo">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Lumière Photography. All rights reserved.</p>
+        <p>Handcrafted with care.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

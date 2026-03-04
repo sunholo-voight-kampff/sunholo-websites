@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Photography portfolio — landscapes and weddings. Capturing timeless moments and breathtaking scenery with an elegant, refined eye." />
+  <title>Photography Portfolio — Landscapes &amp; Weddings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ====== Navigation ====== -->
+  <header class="site-header" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="Home">Lumière</a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <!-- Mobile hamburger (CSS-only) -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+      <label for="nav-toggle" class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+    <nav class="nav-mobile" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ====== Hero ====== -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-atmosphere" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="section-label">Photography Portfolio</p>
+        <h1>Light, Land &amp; Love</h1>
+        <p class="hero-tagline">Landscapes that breathe. Weddings that last a lifetime.<br>Every frame a quiet testament to beauty.</p>
+        <a href="gallery.html" class="hero-cta">View the Gallery</a>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">Scroll</div>
+    </section>
+
+    <!-- ====== Featured Work ====== -->
+    <section class="section" aria-labelledby="featured-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Selected Work</p>
+          <h2 id="featured-heading">Recent Favourites</h2>
+          <div class="divider" aria-hidden="true"></div>
+          <p>A curated glimpse into landscapes and love stories, each captured with intention.</p>
+        </div>
+
+        <div class="preview-grid">
+          <div class="preview-card preview-card--wide">
+            <div class="preview-placeholder">
+              <div class="landscape-art" role="img" aria-label="Highland panorama at golden hour"></div>
+            </div>
+            <div class="preview-caption">
+              <p class="preview-caption-label">Landscape</p>
+              <h3>Highland Panorama, Golden Hour</h3>
+            </div>
+          </div>
+
+          <div class="preview-card">
+            <div class="preview-placeholder" style="background: linear-gradient(135deg, #f5eeea 0%, #e8d5c0 35%, #c4b0a0 65%, #9a8878 100%);">
+              <div class="wedding-art" role="img" aria-label="First dance photograph, candlelit reception"></div>
+            </div>
+            <div class="preview-caption">
+              <p class="preview-caption-label">Wedding</p>
+              <h3>First Dance, Candlelight</h3>
+            </div>
+          </div>
+
+          <div class="preview-card">
+            <div class="preview-placeholder" style="background: linear-gradient(155deg, #1e3050 0%, #2d5078 35%, #7a9ab8 65%, #b0cad8 100%);">
+              <div class="landscape-art" role="img" aria-label="Sea cliffs at dusk, dramatic coastal light"></div>
+            </div>
+            <div class="preview-caption">
+              <p class="preview-caption-label">Landscape</p>
+              <h3>Sea Cliffs at Dusk</h3>
+            </div>
+          </div>
+
+          <div class="preview-card">
+            <div class="preview-placeholder" style="background: linear-gradient(150deg, #f7f0e8 0%, #ead8c0 35%, #d8c0a0 65%, #b89878 100%);">
+              <div class="wedding-art" role="img" aria-label="Bride's portrait, natural window light"></div>
+            </div>
+            <div class="preview-caption">
+              <p class="preview-caption-label">Wedding</p>
+              <h3>Portrait, Natural Light</h3>
+            </div>
+          </div>
+
+          <div class="preview-card">
+            <div class="preview-placeholder" style="background: linear-gradient(145deg, #2a3828 0%, #4a6045 30%, #88a080 60%, #c0d4b8 100%);">
+              <div class="landscape-art" role="img" aria-label="Forest path in morning mist"></div>
+            </div>
+            <div class="preview-caption">
+              <p class="preview-caption-label">Landscape</p>
+              <h3>Morning Mist, Forest Path</h3>
+            </div>
+          </div>
+
+          <div class="preview-card">
+            <div class="preview-placeholder" style="background: linear-gradient(160deg, #d8c8b8 0%, #c4a882 35%, #a88060 65%, #785840 100%);">
+              <div class="wedding-art" role="img" aria-label="Couple at sunset, countryside ceremony"></div>
+            </div>
+            <div class="preview-caption">
+              <p class="preview-caption-label">Wedding</p>
+              <h3>Sunset Ceremony, Countryside</h3>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top: 3rem;">
+          <a href="gallery.html" class="btn btn-outline">Explore Full Gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Specialties ====== -->
+    <section class="section section--warm" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Specialties</p>
+          <h2 id="services-heading">What I Do</h2>
+          <div class="divider" aria-hidden="true"></div>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-num">01</div>
+            <h3>Landscape Photography</h3>
+            <p>From sweeping highland vistas to intimate woodland details — I seek the light that turns ordinary terrain into something extraordinary.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-num">02</div>
+            <h3>Wedding Photography</h3>
+            <p>Unobtrusive and warm, I document your day as it truly unfolds — the glances, the laughter, the quiet in-between moments that matter most.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-num">03</div>
+            <h3>Fine Art Prints</h3>
+            <p>Museum-quality giclée prints of landscape work, available in bespoke sizes. Each print is individually signed and numbered.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== Testimonials ====== -->
+    <section class="section section--dark" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Kind Words</p>
+          <h2 id="testimonials-heading" style="color: var(--white);">What Clients Say</h2>
+          <div class="divider" aria-hidden="true"></div>
+        </div>
+
+        <div class="testimonials">
+          <div class="testimonial">
+            <blockquote>"The landscape prints are simply breathtaking — we've had more compliments on those framed pieces than anything else in our home. Truly a gifted eye."</blockquote>
+            <cite>— James &amp; Harriet, Edinburgh</cite>
+          </div>
+          <div class="testimonial">
+            <blockquote>"We barely noticed the camera all day, yet every emotion and detail was captured perfectly. Our wedding album is something we'll treasure forever."</blockquote>
+            <cite>— Sophie &amp; Tom, Cotswolds</cite>
+          </div>
+          <div class="testimonial">
+            <blockquote>"Professional, calm, and wonderfully creative. The photographs have such a timeless quality — exactly what we hoped for."</blockquote>
+            <cite>— Eleanor, Bride — Lake District</cite>
+          </div>
+          <div class="testimonial">
+            <blockquote>"The dawn shoot on the moors was extraordinary. Worth every early alarm — the results are beyond anything I could have imagined."</blockquote>
+            <cite>— David R., Fine Art Collector</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CTA ====== -->
+    <section class="section" aria-labelledby="cta-heading" style="text-align:center;">
+      <div class="container" style="max-width:640px;">
+        <p class="section-label">Begin Here</p>
+        <h2 id="cta-heading">Let's Create Something Beautiful</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <p>Whether you're planning a wedding or seeking a landscape commission, I'd love to hear from you. Every project starts with a conversation.</p>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:1.5rem;">Get in Touch</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== Footer ====== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-brand">Lumière</p>
+          <p class="footer-tagline">Landscapes &amp; Weddings Photography</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="gallery.html#landscapes">Landscapes</a></li>
+            <li><a href="gallery.html#weddings">Weddings</a></li>
+            <li><a href="contact.html">Fine Art Prints</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Enquire</a></li>
+            <li><a href="mailto:hello@lumiere.photo">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Lumière Photography. All rights reserved.</p>
+        <p>Handcrafted with care.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

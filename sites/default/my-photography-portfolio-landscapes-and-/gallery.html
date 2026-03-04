@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio gallery — landscape and wedding photography. Browse a curated selection of fine art landscape images and wedding reportage." />
+  <title>Gallery — Lumière Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ====== Navigation ====== -->
+  <header class="site-header" role="banner">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="Home">Lumière</a>
+      <nav aria-label="Primary navigation">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true" />
+      <label for="nav-toggle" class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+    <nav class="nav-mobile" aria-label="Mobile navigation">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ====== Page Hero ====== -->
+    <section class="page-hero" aria-label="Page header">
+      <div class="container">
+        <p class="section-label">Portfolio</p>
+        <h1>The Gallery</h1>
+        <p>Landscapes and love stories — a curated selection of work spanning wild terrain and intimate celebrations.</p>
+      </div>
+    </section>
+
+    <!-- ====== Gallery ====== -->
+    <section class="section" id="landscapes" aria-labelledby="gallery-heading">
+      <div class="container">
+
+        <!-- Filter tabs -->
+        <div class="gallery-filters" role="group" aria-label="Filter gallery by category">
+          <button class="filter-btn active" aria-pressed="true">All Work</button>
+          <button class="filter-btn" aria-pressed="false">Landscapes</button>
+          <button class="filter-btn" aria-pressed="false">Weddings</button>
+          <button class="filter-btn" aria-pressed="false">Fine Art Prints</button>
+        </div>
+
+        <h2 id="gallery-heading" class="visually-hidden">Photography Gallery</h2>
+
+        <!-- Masonry grid -->
+        <div class="masonry-grid" role="list">
+
+          <!-- Landscapes -->
+          <div class="masonry-item" role="listitem">
+            <div class="img-placeholder gal-1">
+              <div class="landscape-art" role="img" aria-label="Highland glen at sunrise, amber and ochre tones"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Landscape</small>
+                  <span>Highland Glen, Sunrise</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-item" role="listitem">
+            <div class="img-placeholder gal-2">
+              <div class="wedding-art" role="img" aria-label="Wedding couple walking through meadow, soft afternoon light"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Wedding</small>
+                  <span>Meadow Walk, Afterglow</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-item" role="listitem">
+            <div class="img-placeholder gal-3">
+              <div class="landscape-art" role="img" aria-label="Coastal cliffs at dusk with sea mist"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Landscape</small>
+                  <span>Coastal Cliffs, Sea Mist</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-item" role="listitem">
+            <div class="img-placeholder gal-4">
+              <div class="landscape-art" role="img" aria-label="Ancient woodland in autumn, golden light through canopy"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Landscape</small>
+                  <span>Ancient Woodland, Autumn</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-item" role="listitem">
+            <div class="img-placeholder gal-5">
+              <div class="wedding-art" role="img" aria-label="First kiss at the altar, candlelit ceremony"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Wedding</small>
+                  <span>The Kiss, Candlelight</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-item" role="listitem">
+            <div class="img-placeholder gal-6">
+              <div class="landscape-art" role="img" aria-label="Moorland at dusk with dramatic cloud formations"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Landscape</small>
+                  <span>Moorland Drama, Dusk</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-item" id="weddings" role="listitem">
+            <div class="img-placeholder gal-7">
+              <div class="wedding-art" role="img" aria-label="Bride and groom portrait, romantic estate garden"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Wedding</small>
+                  <span>Garden Portrait, Estate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-item" role="listitem">
+            <div class="img-placeholder gal-8">
+              <div class="landscape-art" role="img" aria-label="Dawn mist over still lake, mountain reflection"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Landscape</small>
+                  <span>Lake Reflection, Dawn</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-item" role="listitem">
+            <div class="img-placeholder gal-9">
+              <div class="wedding-art" role="img" aria-label="Wedding details — rings, bouquet on vintage linen"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Wedding</small>
+                  <span>Details, Vintage Linen</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-item" role="listitem">
+            <div class="img-placeholder gal-10">
+              <div class="landscape-art" role="img" aria-label="Sand dunes at golden hour, long shadows"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Landscape</small>
+                  <span>Sand Dunes, Golden Hour</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-item" role="listitem">
+            <div class="img-placeholder gal-11">
+              <div class="landscape-art" role="img" aria-label="Deep blue winter seascape, storm light"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Fine Art Print</small>
+                  <span>Winter Seascape, Storm</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="masonry-item" role="listitem">
+            <div class="img-placeholder gal-12">
+              <div class="wedding-art" role="img" aria-label="Bridal party laughing in sunlight, countryside setting"></div>
+              <div class="img-overlay">
+                <div class="img-overlay-text">
+                  <small>Wedding</small>
+                  <span>Bridal Party, Laughter</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.masonry-grid -->
+
+      </div>
+    </section>
+
+    <!-- ====== Prints CTA ====== -->
+    <section class="section section--warm" aria-labelledby="prints-heading" style="text-align:center;">
+      <div class="container" style="max-width:620px;">
+        <p class="section-label">Fine Art Prints</p>
+        <h2 id="prints-heading">Bring the Landscape Home</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <p>A selection of landscape images are available as museum-quality giclée prints. Each piece is printed on 310gsm archival paper and individually signed. Custom sizes available on request.</p>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:1.5rem;">Enquire About Prints</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ====== Footer ====== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-brand">Lumière</p>
+          <p class="footer-tagline">Landscapes &amp; Weddings Photography</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="gallery.html#landscapes">Landscapes</a></li>
+            <li><a href="gallery.html#weddings">Weddings</a></li>
+            <li><a href="contact.html">Fine Art Prints</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Enquire</a></li>
+            <li><a href="mailto:hello@lumiere.photo">Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Lumière Photography. All rights reserved.</p>
+        <p>Handcrafted with care.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
