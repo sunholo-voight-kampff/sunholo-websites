@@ -357,6 +357,25 @@ p:last-child { margin-bottom: 0; }
   background: linear-gradient(140deg, #1a2a3a 0%, #2d4a6a 40%, #5b7fa0 70%, #9ab5c8 100%);
 }
 
+/* Image-filled placeholder */
+.preview-placeholder--image {
+  background: var(--primary);
+  padding: 0;
+}
+
+.preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform var(--transition);
+}
+
+.preview-card:hover .preview-img {
+  transform: scale(1.03);
+}
+
 /* Mountain silhouette-like shapes via CSS */
 .landscape-art {
   width: 100%;
@@ -853,7 +872,7 @@ p:last-child { margin-bottom: 0; }
   .preview-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .preview-grid .preview-card:first-child {
+  .preview-grid .preview-card--wide {
     grid-column: span 2;
     aspect-ratio: 16/7;
   }
@@ -880,7 +899,7 @@ p:last-child { margin-bottom: 0; }
   .preview-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-  .preview-grid .preview-card:first-child {
+  .preview-grid .preview-card--wide {
     grid-column: span 2;
     aspect-ratio: 4/3;
   }
