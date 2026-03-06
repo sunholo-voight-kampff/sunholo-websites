@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Chat | Bright Spark Marketing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5F6D;
+            --secondary: #FFC371;
+            --accent: #4834D4;
+            --background: #FFFAF0;
+            --text: #2D3436;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--text);
+        }
+
+        /* Floating Header */
+        header {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-bar {
+            background: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border: 2px solid rgba(255, 95, 109, 0.1);
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        #nav-check {
+            display: none;
+        }
+
+        /* Contact Page Layout */
+        main {
+            padding: 100px 20px 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        /* Section Styles */
+        .section-header {
+            margin-bottom: 30px;
+        }
+
+        .section-header h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        /* Form Styling */
+        .contact-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border: 4px solid var(--secondary);
+            position: relative;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #EEE;
+            border-radius: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+        }
+
+        textarea.form-input {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Social Links */
+        .social-block {
+            background: var(--accent);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 30px;
+            margin-top: 40px;
+        }
+
+        .social-block h2 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .social-grid {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            color: var(--accent);
+        }
+
+        /* Decorative Blobs */
+        .blob {
+            position: absolute;
+            z-index: -1;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.4;
+        }
+
+        .blob-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            top: -50px;
+            right: -100px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                right: 20px;
+                background: var(--white);
+                flex-direction: column;
+                width: 200px;
+                padding: 20px;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            #nav-check:checked ~ .nav-links {
+                display: flex;
+            }
+
+            main {
+                padding-top: 60px;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-bar">
+            <a href="home.html" class="logo">Bright Spark</a>
+            
+            <input type="checkbox" id="nav-check">
+            <label for="nav-check" class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="services.html">What We Do</a></li>
+                <li><a href="the-vibe.html">The Vibe</a></li>
+                <li><a href="contact.html" style="color: var(--primary);">Let's Chat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="blob blob-1"></div>
+        
+        <div class="contact-container">
+            <div class="contact-info-side">
+                <section class="section-header">
+                    <h1>Ready to Glow?</h1>
+                    <p>Drop us a line and let's start dreaming up your next big move. No robots here, just real humans ready to help.</p>
+                </section>
+
+                <section class="social-block">
+                    <h2>Follow the Fun</h2>
+                    <p>Find us on Instagram, TikTok, and LinkedIn for daily doses of marketing inspiration and behind-the-scenes chaos.</p>
+                    <div class="social-grid">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">TikTok</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </section>
+            </div>
+
+            <section class="contact-form-side">
+                <div class="contact-card">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Sunshine McSparkle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="hello@yourbrand.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">How can we help?</label>
+                            <textarea id="message" name="message" class="form-input" placeholder="Tell us about your dreams..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send the Spark!</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2024 Bright Spark Marketing. Built with caffeine and creativity.
+    </footer>
+
+</body>
+</html>

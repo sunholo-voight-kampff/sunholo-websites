@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Spark Marketing | Let's Make Your Brand Pop!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5F6D;
+            --secondary: #FFC371;
+            --accent: #4834D4;
+            --background: #FFFAF0;
+            --text: #2D3436;
+            --white: #FFFFFF;
+            --blob-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--accent);
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 2px solid var(--secondary);
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 20px 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--blob-radius);
+            border: 8px solid var(--primary);
+            box-shadow: 20px 20px 0px var(--secondary);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--accent);
+            color: var(--white);
+            padding: 40px 20px;
+            margin: 40px 0;
+            transform: rotate(-1deg);
+            width: 110%;
+            margin-left: -5%;
+        }
+
+        .stats-inner {
+            transform: rotate(1deg);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            text-align: center;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        /* Feature Highlight */
+        .feature {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .feature h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .feature h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: var(--secondary);
+            z-index: -1;
+            border-radius: 10px;
+            opacity: 0.5;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 30px;
+            border: 3px dashed var(--primary);
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            background: var(--secondary);
+            border-radius: 50% 50% 0 0 / 10% 10% 0 0;
+            margin-top: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 10px 20px rgba(72, 52, 212, 0.3);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            header {
+                padding: 10px 15px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .nav-toggle-label {
+                display: block;
+                cursor: pointer;
+                font-size: 1.5rem;
+            }
+
+            .stats-inner {
+                font-size: 1rem;
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Custom Bubbly Decorations */
+        .blob-decoration {
+            position: absolute;
+            z-index: -1;
+            background: var(--secondary);
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Bright Spark ✨</a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">What We Do</a></li>
+                <li><a href="#">The Vibe</a></li>
+                <li><a href="#">Let's Chat</a></li>
+            </ul>
+        </nav>
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle Menu">☰</label>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="blob-decoration" style="width: 300px; height: 300px; top: 10%; left: -100px;"></div>
+            <h1>Let's Make Your Brand Pop!</h1>
+            <div class="hero-content">
+                <p>Marketing shouldn't be a snooze-fest. We help small businesses find their unique rhythm and share it with the world through bright ideas and bold strategy.</p>
+            </div>
+            <div class="hero-image-container">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.27 (1).jpeg" alt="Vibrant marketing workspace with creative energy">
+            </div>
+            <a href="#" class="cta-button">Start Your Growth Journey</a>
+        </section>
+
+        <section class="stats-bar">
+            <div class="stats-inner">
+                <span>150+ Happy Clients</span>
+                <span>•</span>
+                <span>12k Cups of Coffee</span>
+                <span>•</span>
+                <span>100% Good Vibes</span>
+            </div>
+        </section>
+
+        <section class="feature">
+            <h2>Why Us?</h2>
+            <div class="feature-card">
+                <p>We don't do boring. We do personality-driven marketing that turns followers into fans and customers into community. Our approach is built on the belief that your business is special, and we're here to make sure everyone else knows it too!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h3 style="margin-bottom: 15px;">Bright Spark Marketing</h3>
+        <p>© 2024. All the vibes, all the time.</p>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle logic
+        const checkbox = document.getElementById('nav-toggle');
+        const nav = document.querySelector('nav');
+        
+        checkbox.addEventListener('change', function() {
+            if(this.checked) {
+                nav.style.display = 'block';
+                nav.style.position = 'absolute';
+                nav.style.top = '70px';
+                nav.style.right = '0';
+                nav.style.background = 'white';
+                nav.style.padding = '20px';
+                nav.style.borderRadius = '20px';
+                nav.style.width = '200px';
+                nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+                nav.querySelector('ul').style.flexDirection = 'column';
+            } else {
+                nav.style.display = window.innerWidth > 768 ? 'block' : 'none';
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if(window.innerWidth > 768) {
+                nav.style.display = 'block';
+                nav.style.position = 'static';
+                nav.style.width = 'auto';
+                nav.style.boxShadow = 'none';
+                nav.querySelector('ul').style.flexDirection = 'row';
+            } else if (!checkbox.checked) {
+                nav.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
