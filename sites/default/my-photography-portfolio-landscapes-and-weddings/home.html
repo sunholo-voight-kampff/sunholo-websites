@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivid Lens | Photography by Design</title>
+    <meta name="description" content="High-impact landscape and wedding photography featuring bold colors and cinematic compositions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF004D;
+            --secondary: #1A1A1A;
+            --accent: #00F0FF;
+            --background: #080808;
+            --text: #FFFFFF;
+            --header-bg: rgba(26, 26, 26, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-shadow: 2px 2px var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4) saturate(1.5);
+            z-index: -1;
+        }
+
+        .hero-content {
+            padding: 0 5%;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 15vw, 10rem);
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 0.9;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Impact Statement */
+        .impact {
+            background: var(--primary);
+            padding: 6rem 5%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .impact h2 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .impact p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        /* Dual Feature */
+        .dual-feature {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .dual-feature .image-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(10, 1fr);
+            height: 600px;
+        }
+
+        .dual-feature img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 2px solid var(--accent);
+        }
+
+        .dual-feature img:nth-child(1) {
+            grid-column: 1 / 8;
+            grid-row: 1 / 8;
+            z-index: 2;
+        }
+
+        .dual-feature img:nth-child(2) {
+            grid-column: 4 / 11;
+            grid-row: 4 / 11;
+            z-index: 1;
+            border-color: var(--primary);
+        }
+
+        .dual-feature-content h2 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        .dual-feature-content p {
+            font-size: 1.2rem;
+            border-left: 4px solid var(--primary);
+            padding-left: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: var(--secondary);
+            text-align: center;
+            border-top: 5px solid var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .dual-feature {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .dual-feature .image-grid {
+                height: 400px;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--secondary);
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: 0.5s ease-in-out;
+            }
+            #menu-toggle:checked ~ .nav-links {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">VIVID LENS</div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#services">Experiences</a>
+                <a href="#about">The Artist</a>
+                <a href="#contact">Book</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="WhatsApp Video 2026-02-05 at 20.33.52.mp4" type="video/mp4">
+            </video>
+            <div class="hero-content">
+                <h1>LIFE IN TECHNICOLOR</h1>
+                <p>Where raw nature meets the most intimate human moments. We don't just take photos; we capture electricity.</p>
+            </div>
+        </section>
+
+        <section class="impact">
+            <h2>Boldly Captured</h2>
+            <p>Breaking the mold of traditional photography with saturated palettes and high-energy compositions.</p>
+        </section>
+
+        <section class="dual-feature">
+            <div class="image-grid">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.27 (1).jpeg" alt="Cinematic landscape photography">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.27.jpeg" alt="Vibrant wedding photography">
+            </div>
+            <div class="dual-feature-content">
+                <h2>The Portfolio Focus</h2>
+                <p>From the quiet majesty of mountain peaks to the ecstatic energy of your wedding day. We specialize in high-contrast visual storytelling that refuses to be ignored.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo">VIVID LENS</div>
+        <p style="margin-top: 1rem;">&copy; 2024 Vivid Lens. All Rights Reserved. Stay Bold.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close menu if open
+                document.getElementById('menu-toggle').checked = false;
+            });
+        });
+    </script>
+</body>
+</html>

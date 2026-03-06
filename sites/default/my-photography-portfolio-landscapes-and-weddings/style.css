@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --primary: #FF004D;
+  --secondary: #1A1A1A;
+  --accent: #00F0FF;
+  --background: #080808;
+  --text: #FFFFFF;
+  --glass: rgba(26, 26, 26, 0.85);
+  --heading-font: 'Anton', sans-serif;
+  --body-font: 'Montserrat', sans-serif;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: var(--body-font);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: var(--heading-font);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.1;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* --- Header & Navigation --- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--glass);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--heading-font);
+  font-size: 1.5rem;
+  color: var(--primary);
+  text-shadow: 2px 2px var(--accent);
+}
+
+.nav-toggle {
+  display: block;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+.nav-menu {
+  position: fixed;
+  top: 70px;
+  left: -100%;
+  width: 100%;
+  height: calc(100vh - 70px);
+  background: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  transition: var(--transition);
+}
+
+.nav-menu.active {
+  left: 0;
+}
+
+.nav-link {
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  letter-spacing: 4px;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+  transform: skewX(-10deg);
+}
+
+/* --- Hero Section --- */
+.video-hero {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 5%;
+  overflow: hidden;
+}
+
+.video-hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: brightness(0.4) saturate(1.5);
+}
+
+.hero-content h1 {
+  font-size: clamp(3rem, 15vw, 8rem);
+  color: var(--text);
+  -webkit-text-stroke: 1px var(--primary);
+}
+
+/* --- Layout Components --- */
+section {
+  padding: 80px 5%;
+}
+
+.impact-statement {
+  background: var(--primary);
+  color: var(--background);
+  transform: skewY(-2deg);
+  margin: 40px 0;
+  padding: 100px 5%;
+}
+
+.impact-statement > * {
+  transform: skewY(2deg);
+}
+
+.impact-statement h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.dual-feature {
+  display: grid;
+  gap: 2rem;
+}
+
+.dual-feature .image-wrapper {
+  position: relative;
+  border: 5px solid var(--secondary);
+}
+
+.dual-feature .image-wrapper:nth-child(even) {
+  margin-top: 20px;
+}
+
+/* --- Portfolio / Masonry --- */
+.masonry-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1) rotate(2deg);
+  filter: saturate(1.5);
+}
+
+/* --- Pricing Grid --- */
+.pricing-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.price-card {
+  background: var(--secondary);
+  padding: 3rem 2rem;
+  border-left: 8px solid var(--accent);
+  transition: var(--transition);
+}
+
+.price-card:hover {
+  background: var(--primary);
+  transform: translateY(-10px);
+}
+
+.price-card h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.price-card .price {
+  font-family: var(--heading-font);
+  font-size: 3rem;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 2rem;
+}
+
+/* --- Contact Form --- */
+.contact-form form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 1.2rem;
+  background: var(--secondary);
+  border: 1px solid #333;
+  color: white;
+  font-family: var(--body-font);
+}
+
+input:focus, textarea:focus {
+  outline: 2px solid var(--accent);
+}
+
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1.2rem;
+  font-family: var(--heading-font);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:hover {
+  background: var(--accent);
+  color: var(--background);
+}
+
+/* --- Tablet Breakpoint --- */
+@media (min-width: 768px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    position: static;
+    height: auto;
+    width: auto;
+    flex-direction: row;
+    background: transparent;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+
+  .dual-feature {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .masonry-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Desktop Breakpoint --- */
+@media (min-width: 1024px) {
+  section {
+    padding: 120px 10%;
+  }
+
+  .masonry-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero-content h1 {
+    font-size: 10rem;
+  }
+
+  .image-text-punch {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .image-text-punch .image-side {
+    flex: 1;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+  }
+
+  .image-text-punch .text-side {
+    flex: 1;
+  }
+}
+
+/* --- Print --- */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  header, button {
+    display: none;
+  }
+}

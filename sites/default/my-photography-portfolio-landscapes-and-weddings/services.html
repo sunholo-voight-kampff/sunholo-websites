@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiences | Vivid Lens Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF004D;
+            --secondary: #1A1A1A;
+            --accent: #00F0FF;
+            --bg: #080808;
+            --text: #FFFFFF;
+            --glass: rgba(26, 26, 26, 0.85);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* --- Navigation --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-shadow: 2px 2px var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            transition: var(--transition);
+        }
+
+        /* --- Hero Section --- */
+        .hero-mini {
+            padding: 180px 5% 80px;
+            background: linear-gradient(45deg, #080808 30%, #1A1A1A 100%);
+            text-align: center;
+        }
+
+        .hero-mini h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            margin-bottom: 1rem;
+            color: var(--text);
+            -webkit-text-stroke: 1px var(--primary);
+        }
+
+        .hero-mini p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* --- Pricing Grid --- */
+        .pricing-section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            border-left: 8px solid var(--primary);
+            padding-left: 1.5rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .price-card {
+            background: var(--secondary);
+            padding: 3rem 2rem;
+            border: 2px solid transparent;
+            position: relative;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.1);
+        }
+
+        .price-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li::before {
+            content: '▶';
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: white;
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        /* --- Image Text Punch --- */
+        .punch-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background: var(--text);
+            color: var(--bg);
+            margin: 100px 0;
+        }
+
+        .punch-image {
+            flex: 1 1 500px;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .punch-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) contrast(120%);
+            transition: var(--transition);
+        }
+
+        .punch-image:hover img {
+            filter: grayscale(0%) contrast(110%);
+            transform: scale(1.05);
+        }
+
+        .punch-content {
+            flex: 1 1 400px;
+            padding: 5rem 10%;
+        }
+
+        .punch-content h2 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .punch-content p {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 50px 5%;
+            background: var(--secondary);
+            text-align: center;
+            border-top: 5px solid var(--primary);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--bg);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: 0.4s;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                left: 0;
+            }
+
+            .punch-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-mini h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Asymmetric Utility */
+        .asymmetric-border {
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">VIVID LENS</div>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="services.html" class="active">Experiences</a></li>
+            <li><a href="about.html">The Artist</a></li>
+            <li><a href="contact.html">Book the Lens</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <section class="hero-mini">
+            <h1>INVESTMENT</h1>
+            <p>Choose your adventure. Whether it's a sunrise hike or a midnight reception.</p>
+        </section>
+
+        <section class="pricing-section">
+            <div class="grid-container">
+                <!-- Package 1 -->
+                <div class="price-card">
+                    <div class="asymmetric-border"></div>
+                    <h3>The Wild Landscape</h3>
+                    <span class="price-tag">$1,200</span>
+                    <ul class="features-list">
+                        <li>Wall Art Prints</li>
+                        <li>Location Scouting</li>
+                        <li>Digital Rights</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Secure the Date</a>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="price-card">
+                    <div class="asymmetric-border"></div>
+                    <h3>The Wedding Epic</h3>
+                    <span class="price-tag">$4,500</span>
+                    <ul class="features-list">
+                        <li>10 Hours Coverage</li>
+                        <li>Second Shooter</li>
+                        <li>Highlight Film</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Start the Journey</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="punch-section">
+            <div class="punch-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.27 (1).jpeg" alt="Cinematic wedding moment">
+            </div>
+            <div class="punch-content">
+                <h2>BEYOND THE FRAME</h2>
+                <p>Our wedding packages focus on the candid, the colorful, and the chaotic beauty of your celebration. We don't just stand in the corner; we dive into the energy to capture the electricity of the moment.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="logo" style="margin-bottom: 1rem;">VIVID LENS</div>
+        <p>&copy; 2025 Vivid Lens Photography | Unapologetically Bold.</p>
+    </footer>
+
+</body>
+</html>

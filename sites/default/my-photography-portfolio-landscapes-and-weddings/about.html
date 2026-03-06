@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="High-impact landscape and wedding photography featuring bold colors and cinematic compositions.">
+    <title>The Artist | Vivid Lens</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF004D;
+            --secondary: #1A1A1A;
+            --accent: #00F0FF;
+            --background: #080808;
+            --text: #FFFFFF;
+            --font-heading: 'Anton', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Sticky Glassmorphism Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 5%;
+        }
+
+        h1, h2 {
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        /* Story Section - Asymmetric */
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 80vh;
+        }
+
+        .story-content {
+            position: relative;
+        }
+
+        .story-title {
+            font-size: clamp(4rem, 10vw, 8rem);
+            color: var(--primary);
+            margin-bottom: 2rem;
+            transform: rotate(-2deg);
+            display: inline-block;
+            background: var(--text);
+            color: var(--background);
+            padding: 0 1rem;
+        }
+
+        .story-text {
+            font-size: 1.4rem;
+            font-weight: 400;
+            border-left: 4px solid var(--accent);
+            padding-left: 2rem;
+            max-width: 500px;
+        }
+
+        .story-accent-box {
+            width: 100%;
+            height: 400px;
+            background: var(--secondary);
+            border: 8px solid var(--primary);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .story-accent-box::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--accent);
+            z-index: -1;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--primary);
+            color: var(--background);
+            padding: 4rem 5%;
+            transform: skewY(-2deg);
+            margin: 4rem 0;
+        }
+
+        .stats-inner {
+            transform: skewY(2deg);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .stats-title-main {
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            letter-spacing: 5px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            border-top: 1px solid var(--secondary);
+            text-align: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #666;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 968px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .story-text {
+                margin: 0 auto;
+                border-left: none;
+                border-top: 4px solid var(--accent);
+                padding-left: 0;
+                padding-top: 2rem;
+            }
+            .story-title {
+                transform: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--secondary);
+                padding: 2rem;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            #menu-toggle:checked ~ nav {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .stat-number {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">Vivid Lens</a>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Experiences</a></li>
+                <li><a href="#" class="active">The Artist</a></li>
+                <li><a href="#">Book the Lens</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="story-section">
+            <div class="story-content">
+                <h1 class="story-title">Chasing Light</h1>
+                <p class="story-text">
+                    I started in the mountains and ended up at the altar. My style is defined by a refusal to be muted. I believe life is vibrant, and your photos should be too.
+                </p>
+            </div>
+            <div class="story-visual">
+                <div class="story-accent-box">
+                    <h2 style="font-size: 3rem; color: var(--accent); text-align: center; padding: 2rem;">UNAPOLOGETICALLY BOLD</h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-bar">
+            <h2 class="stats-title-main">By The Numbers</h2>
+            <div class="stats-inner">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Sunrises Captured</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">200+</span>
+                    <span class="stat-label">Weddings Celebrated</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Saturated</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2024 Vivid Lens | Photography by Design. Cinematic Visuals Only.
+    </footer>
+
+</body>
+</html>
