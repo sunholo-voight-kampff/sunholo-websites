@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Thistle & Bloom Edinburgh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5B6D5B;
+            --secondary: #E8E3D9;
+            --accent: #C5A059;
+            --background: #FAF9F6;
+            --text: #2A2A2A;
+            --white: #FFFFFF;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            background: var(--white);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a.active {
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 12rem 5% 6rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Masonry Gallery */
+        .gallery-container {
+            padding: 0 5% 8rem;
+        }
+
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 2rem;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            transition: transform 0.8s ease;
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background-color: var(--secondary);
+            padding: 8rem 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-banner p {
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background-color: var(--primary);
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            border-radius: 2px;
+            transition: var(--transition);
+            border: 1px solid var(--primary);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        footer {
+            padding: 4rem 5%;
+            background: var(--background);
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                text-align: center;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .masonry-grid {
+                column-count: 1;
+            }
+
+            .page-header {
+                padding: 10rem 5% 4rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="home.html" class="logo">Thistle & Bloom</a>
+        <div class="hamburger" id="mobile-menu" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">The Studio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>A Floral Chronicle</h1>
+        <p>Explore our curated gallery of past works, from intimate celebrations to grand architectural installations, each bloom hand-selected to tell a unique story.</p>
+    </header>
+
+    <main class="gallery-container">
+        <div class="masonry-grid">
+            <div class="masonry-item">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.09.jpeg" alt="Vintage heritage collection bouquet">
+            </div>
+            <div class="masonry-item">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.27 (3).jpeg" alt="Delicate architectural floral installation">
+            </div>
+            <div class="masonry-item">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.27 (2).jpeg" alt="Artisanal wedding centerpiece in Edinburgh venue">
+            </div>
+            <div class="masonry-item">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.27 (1).jpeg" alt="Detail of seasonal Scottish blooms">
+            </div>
+            <div class="masonry-item">
+                <img src="WhatsApp Image 2026-02-05 at 20.33.27.jpeg" alt="The maker's hand-tied bridal bouquet">
+            </div>
+        </div>
+    </main>
+
+    <section class="cta-banner">
+        <h2>Ready to start your story?</h2>
+        <p>We are currently booking for the 2026 season. Let's discuss your vision and bring your floral dreams to life in the heart of Scotland.</p>
+        <a href="contact.html" class="btn">Enquire Now</a>
+    </section>
+
+    <footer>
+        <span class="footer-logo">Thistle & Bloom Edinburgh</span>
+        <p class="copyright">&copy; 2024 Thistle & Bloom. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const navbar = document.getElementById('navbar');
+        window.onscroll = () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        };
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.onclick = () => {
+            navLinks.classList.toggle('active');
+        };
+
+        // Close menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.onclick = () => {
+                navLinks.classList.remove('active');
+            };
+        });
+    </script>
+</body>
+</html>

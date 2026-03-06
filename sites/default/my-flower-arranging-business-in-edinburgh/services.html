@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Thistle & Bloom Edinburgh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5B6D5B;
+            --secondary: #E8E3D9;
+            --accent: #C5A059;
+            --background: #FAF9F6;
+            --text: #2A2A2A;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--text);
+        }
+
+        /* Services Grid Section */
+        .services-hero {
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .services-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .services-hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 40px 0 100px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(91, 109, 91, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+            min-height: 80px;
+        }
+
+        .service-card .divider {
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+            margin: 0 auto 20px;
+        }
+
+        /* Full Width Image Section */
+        .image-full-width-section {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 100px;
+        }
+
+        .image-full-width-section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .image-overlay-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(250, 249, 246, 0.9);
+            padding: 40px 60px;
+            max-width: 600px;
+            text-align: center;
+            border-radius: 2px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            margin: 0 20px;
+        }
+
+        .image-overlay-content p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 80px 0 40px;
+            color: var(--text);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-col h4 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-col p, .footer-col a {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 40px;
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                padding: 40px;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .image-overlay-content {
+                padding: 30px 20px;
+            }
+
+            .image-overlay-content p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="home" class="logo">Thistle & Bloom</a>
+                <div class="hamburger" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-links" id="nav-menu">
+                    <a href="home">Home</a>
+                    <a href="portfolio">Portfolio</a>
+                    <a href="services" class="active">Services</a>
+                    <a href="about">The Studio</a>
+                    <a href="contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="services-hero">
+            <div class="container">
+                <h1>Our Offerings</h1>
+                <p>Whether it's a grand wedding or a delicate gift, we bring the same level of precision and passion to every stem.</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="divider"></div>
+                        <h3>Wedding Design</h3>
+                        <p>Full-service floral styling for your special day, from bridal bouquets to grand venue installations.</p>
+                        <a href="contact" style="color: var(--accent); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Inquire</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="divider"></div>
+                        <h3>Event Styling</h3>
+                        <p>Corporate events, private dinners, and festive celebrations transformed with bespoke botanical elements.</p>
+                        <a href="contact" style="color: var(--accent); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Inquire</a>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="divider"></div>
+                        <h3>Editorial & Brand</h3>
+                        <p>Conceptual floral design for photoshoots, product launches, and retail window displays.</p>
+                        <a href="contact" style="color: var(--accent); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Inquire</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="image-full-width-section">
+            <img src="WhatsApp Image 2026-02-05 at 20.33.27 (3).jpeg" alt="Bespoke floral arrangement detail">
+            <div class="image-overlay-content">
+                <p>"Capturing the delicate balance of color, texture, and form."</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <span class="footer-logo brand-font">Thistle & Bloom</span>
+                    <p>Bespoke floral design for Scotland's most celebrated moments.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <a href="home">Home</a>
+                    <a href="portfolio">Portfolio</a>
+                    <a href="services">Services</a>
+                    <a href="about">The Studio</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <p>New Town, Edinburgh, EH2</p>
+                    <a href="mailto:hello@thistleandbloom.co.uk">hello@thistleandbloom.co.uk</a>
+                    <a href="#">@thistleandbloom_edinburgh</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 THISTLE & BLOOM EDINBURGH. ALL RIGHTS RESERVED.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('mobile-menu-toggle');
+        const menu = document.getElementById('nav-menu');
+
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

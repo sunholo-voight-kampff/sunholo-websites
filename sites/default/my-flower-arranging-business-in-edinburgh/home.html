@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thistle & Bloom Edinburgh | Bespoke Floral Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #5B6D5B;
+            --secondary: #E8E3D9;
+            --accent: #C5A059;
+            --background: #FAF9F6;
+            --text: #2A2A2A;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            padding: 1.5rem 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text);
+            transition: var(--transition);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            color: var(--white);
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Intro Section */
+        .intro {
+            padding: 8rem 0;
+            text-align: center;
+            background-color: var(--background);
+        }
+
+        .intro-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .intro p {
+            font-size: 1.15rem;
+            color: var(--text);
+            opacity: 0.85;
+        }
+
+        /* Split Section */
+        .split-section {
+            padding: 4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .split-section.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .split-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .split-text {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .split-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .split-text p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        /* Featured Gallery */
+        .featured-gallery {
+            padding: 8rem 0;
+            background-color: var(--secondary);
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            height: 500px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            padding: 6rem 0 3rem;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            .split-section, .split-section.reverse {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .split-image img {
+                height: 400px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        /* Menu Drawer (Checkbox Hack) */
+        #menu-toggle {
+            display: none;
+        }
+
+        #menu-toggle:checked ~ .nav-links {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--background);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Thistle & Bloom</a>
+                
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">The Studio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Video Section -->
+        <section class="hero">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="WhatsApp Video 2026-02-05 at 20.33.52.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Artistry in Every Petal</h1>
+                <p>Elevating Edinburgh's most celebrated moments with curated floral designs that speak the language of elegance.</p>
+            </div>
+        </section>
+
+        <!-- Intro Text Section -->
+        <section class="intro">
+            <div class="container">
+                <div class="intro-container">
+                    <h2>The Edinburgh Florist</h2>
+                    <p>From our studio in the heart of the capital, we craft botanical narratives for weddings, private events, and editorial commissions. Our style is a dialogue between nature's wild beauty and refined sophistication.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Split Image Text Section -->
+        <section class="container">
+            <div class="split-section">
+                <div class="split-image">
+                    <img src="WhatsApp Image 2026-02-05 at 20.33.09.jpeg" alt="Festive and Vintage floral collection">
+                </div>
+                <div class="split-text">
+                    <h2>Festive & Vintage Collections</h2>
+                    <p>Discover our seasonal heritage collections, where vintage aesthetics meet fresh, local blooms. Perfectly tailored for the Scottish soul.</p>
+                    <a href="#" class="btn-outline">Explore Collections</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Gallery Section -->
+        <section class="featured-gallery">
+            <div class="container">
+                <div class="gallery-header">
+                    <h2>The Portfolio</h2>
+                    <p>A glimpse into the celebrations we've had the honor of styling across the city's most iconic venues.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2026-02-05 at 20.33.27 (2).jpeg" alt="Bespoke floral arrangement 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="WhatsApp Image 2026-02-05 at 20.33.27 (1).jpeg" alt="Bespoke floral arrangement 2">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo">Thistle & Bloom</span>
+            <ul class="footer-links">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Pinterest</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <p class="copyright">&copy; 2024 Thistle & Bloom Edinburgh. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        window.onscroll = function() {
+            var header = document.getElementById('header');
+            if (window.pageYOffset > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+    </script>
+</body>
+</html>
