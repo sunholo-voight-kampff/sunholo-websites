@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Program | Happy Hooves Riding Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FFD93D;
+            --secondary: #6BCB77;
+            --accent: #FF6B6B;
+            --background: #F9F9F9;
+            --text: #2D3436;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Floating Header */
+        header {
+            position: sticky;
+            top: 15px;
+            z-index: 1000;
+            margin: 0 15px;
+        }
+
+        nav {
+            background: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .page-header {
+            text-align: center;
+            padding: 100px 20px 60px;
+            background: radial-gradient(circle at top left, #fff9e6 0%, transparent 40%);
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-bottom: 8px solid var(--primary);
+        }
+
+        .feature-card:nth-child(2) {
+            border-bottom-color: var(--secondary);
+        }
+
+        .feature-card:nth-child(3) {
+            border-bottom-color: var(--accent);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Masonry Gallery */
+        .gallery {
+            padding: 80px 0;
+            background-color: #fff;
+            border-radius: 100px 0 100px 0;
+        }
+
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .masonry-container {
+            columns: 3 300px;
+            column-gap: 20px;
+        }
+
+        .masonry-item {
+            margin-bottom: 20px;
+            break-inside: avoid;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            border-radius: 25px;
+            border: 6px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .masonry-item:nth-child(even) img {
+            border-color: var(--primary);
+        }
+
+        .masonry-item img:hover {
+            transform: scale(1.02) rotate(1deg);
+        }
+
+        /* Info Box Section */
+        .info-box-section {
+            padding: 100px 0;
+        }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background: var(--primary);
+            padding: 50px;
+            border-radius: 50px 150px 50px 150px;
+            color: var(--text);
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .info-image {
+            flex: 1;
+        }
+
+        .info-image img {
+            width: 100%;
+            border-radius: 40px;
+            border: 10px solid var(--white);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .blob-bg {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                left: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 30px;
+                border-radius: 20px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+
+            .menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .info-box {
+                flex-direction: column;
+                border-radius: 40px;
+                padding: 30px;
+                text-align: center;
+            }
+
+            .masonry-container {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🐴 Happy Hooves</a>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our-program.html">Our Program</a></li>
+                <li><a href="volunteers.html">Meet the Team</a></li>
+                <li><a href="events.html">Events & Fun</a></li>
+                <li><a href="gallery.html">Smiles Gallery</a></li>
+                <li><a href="contact.html">Get in Touch</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>What We Do</h1>
+                <p>From therapeutic sessions to skill-building workshops, we tailor every ride to the individual. Our programs are designed to spark joy and foster independence.</p>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="feature-icon">🌈</span>
+                        <h3>Therapeutic Riding</h3>
+                        <p>Gentle, guided sessions focused on sensory input, physical therapy, and emotional bonding.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🏆</span>
+                        <h3>Skill Building</h3>
+                        <p>Mastering the art of horsemanship, from grooming to advanced steering and control.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🤝</span>
+                        <h3>Social Workshops</h3>
+                        <p>Group activities that encourage communication, teamwork, and making new stable-mates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery">
+            <div class="container">
+                <div class="gallery-title">
+                    <h2>Life in the Saddle</h2>
+                    <p>Seeing our riders grow in confidence is the best part of our day.</p>
+                </div>
+                <div class="masonry-container">
+                    <div class="masonry-item">
+                        <img src="WhatsApp Image 2026-02-05 at 20.25.20.jpeg" alt="Rider smiling on a horse">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="WhatsApp Image 2026-02-05 at 20.33.27 (2).jpeg" alt="Horse being groomed">
+                    </div>
+                    <div class="masonry-item">
+                        <img src="WhatsApp Image 2026-02-05 at 20.33.27.jpeg" alt="Group riding session">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-box-section">
+            <div class="container">
+                <div class="info-box">
+                    <div class="info-content">
+                        <h2>Benefits of Riding</h2>
+                        <p>Riding isn't just fun—it's transformative! Engaging with horses helps improve core strength, posture, and coordination. Beyond the physical, it provides a unique sense of freedom and a massive boost to emotional well-being and confidence.</p>
+                    </div>
+                    <div class="info-image">
+                        <img src="WhatsApp Image 2026-02-05 at 20.25.31 (2).jpeg" alt="Happy rider and horse connection">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo">Happy Hooves Riding Center</span>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our-program.html">Program</a></li>
+                <li><a href="volunteers.html">Volunteers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <p>&copy; 2023 Happy Hooves Riding Center. All rights reserved. Galloping towards inclusion!</p>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="happy-hooves-riding-center"><script data-wb-form>
+(function(){var EP='https://website-builder-api-tb6m6slywa-uc.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='happy-hooves-riding-center';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

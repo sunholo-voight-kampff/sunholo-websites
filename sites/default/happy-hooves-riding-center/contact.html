@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get in Touch | Happy Hooves Riding Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FFD93D;
+            --secondary: #6BCB77;
+            --accent: #FF6B6B;
+            --background: #F9F9F9;
+            --text: #2D3436;
+            --white: #FFFFFF;
+            --radius: 25px;
+            --shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--text);
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        .header-container {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1100px;
+            z-index: 1000;
+        }
+
+        nav {
+            background: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 3px solid var(--primary);
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 20px 80px;
+            text-align: center;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 217, 61, 0.1) 0%, rgba(249, 249, 249, 1) 90%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Contact Form Section */
+        .contact-section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 4px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #EEE;
+            border-radius: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Map Section */
+        .map-container {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 4px solid var(--primary);
+            transform: rotate(-1deg);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 350px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236bcb77' fill-opacity='0.12'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zM6 30V20h82v10H6zm0 10V30h10v10H6zm10 0V30h10v10H16zm10 0V30h10v10H26zm10 0V30h10v10H36zm10 0V30h10v10H46zm10 0V30h10v10H56zm10 0V30h10v10H66zm10 0V30h10v10H76zm10 0V30h10v10H86z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .map-info {
+            margin-top: 25px;
+            transform: rotate(1deg);
+        }
+
+        .blob-decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 80px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .footer-logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 20px;
+                border-radius: 20px;
+                box-shadow: var(--shadow);
+                border: 3px solid var(--primary);
+                text-align: center;
+            }
+
+            .nav-toggle-label {
+                display: block;
+            }
+
+            .nav-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card {
+                padding: 25px;
+            }
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <nav>
+            <a href="index.html" class="logo">🐴 Happy Hooves</a>
+            
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle menu">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 7H26M4 15H26M4 23H26" stroke="#2D3436" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="our-program.html">Program</a></li>
+                <li><a href="volunteers.html">Team</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <header class="hero">
+        <h1>Say Hello!</h1>
+        <p>Have questions about our sessions or want to volunteer? Drop us a message and we'll get back to you with a neigh and a smile!</p>
+    </header>
+
+    <main class="contact-section">
+        <section class="contact-form-container">
+            <div class="contact-card">
+                <h2 style="margin-bottom: 25px;">Send a Message</h2>
+                <form action="#" method="POST">
+                    <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
+                    
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="hello@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What's on your mind?">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help..." required></textarea>
+                    </div>
+
+                    <button type="submit">Send Giggles & Mail</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="location-info">
+            <div class="map-info">
+                <div class="icon-box">📍</div>
+                <h2 style="margin-bottom: 15px;">Where to Find Us</h2>
+                <p style="margin-bottom: 30px; font-size: 1.1rem;">Located in the heart of the countryside, where the air is fresh and the horses are waiting for your visit.</p>
+            </div>
+
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <span style="font-size: 3rem; margin-bottom: 10px;">🌳</span>
+                    <h3 style="color: var(--secondary);">Happy Hooves Farm</h3>
+                    <p>123 Sunshine Lane<br>Green Valley, Stable County</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding: 20px; border-left: 5px solid var(--accent);">
+                <h3 style="margin-bottom: 10px;">Opening Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed for Pony Naps</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">Happy Hooves Riding Center</span>
+        <p>&copy; 2023 Happy Hooves. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.7;">Making a difference, one trot at a time.</p>
+    </footer>
+
+<meta name="wb-site" content="happy-hooves-riding-center"><script data-wb-form>
+(function(){var EP='https://website-builder-api-tb6m6slywa-uc.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='happy-hooves-riding-center';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

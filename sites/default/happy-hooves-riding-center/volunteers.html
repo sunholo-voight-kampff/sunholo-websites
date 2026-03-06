@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Team - Happy Hooves Riding Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FFD93D;
+            --secondary: #6BCB77;
+            --accent: #FF6B6B;
+            --background: #F9F9F9;
+            --text: #2D3436;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Navigation --- */
+        header {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            margin-bottom: 40px;
+        }
+
+        .nav-wrapper {
+            background: var(--white);
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Mobile Menu Toggle */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--text);
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: 20px;
+                right: 20px;
+                background: var(--white);
+                flex-direction: column;
+                padding: 30px;
+                border-radius: 20px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+                display: none;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+        }
+
+        /* --- Hero Section --- */
+        .hero-simple {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .hero-simple h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        /* --- Team Grid Section --- */
+        .team-section {
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: center;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 40px;
+            border: 8px solid var(--primary);
+            box-shadow: 15px 15px 0px var(--secondary);
+        }
+
+        @media (min-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .team-image-container {
+            position: relative;
+        }
+
+        .team-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 30px;
+            display: block;
+            border: 6px solid var(--accent);
+        }
+
+        .team-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .team-content p {
+            font-size: 1.2rem;
+            color: var(--text);
+        }
+
+        /* --- Story Section --- */
+        .story-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .story-blob {
+            background: var(--primary);
+            padding: 60px 40px;
+            border-radius: 60% 40% 70% 30% / 40% 50% 60% 70%;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text);
+            transition: border-radius 1s ease-in-out;
+        }
+
+        .story-blob:hover {
+            border-radius: 40% 60% 30% 70% / 60% 40% 70% 30%;
+        }
+
+        .story-blob h2 {
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+
+        .story-blob p {
+            font-size: 1.3rem;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* Decorative Blobs */
+        .decor-blob {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-wrapper">
+            <a href="index.html" class="logo">
+                <span style="font-size: 1.8rem;">🐴</span> Happy Hooves
+            </a>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="our-program.html">Our Program</a>
+                <a href="volunteers.html" style="color: var(--accent);">Meet the Team</a>
+                <a href="events.html">Events</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-simple container">
+            <h1>Meet the Team</h1>
+            <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">The amazing humans behind the happy neighs! Our team is dedicated to creating a safe and joyful environment for every rider.</p>
+        </section>
+
+        <section class="team-section container">
+            <div class="team-grid">
+                <div class="team-image-container">
+                    <img src='WhatsApp Image 2026-02-05 at 20.25.31.jpeg' alt='Our wonderful volunteers smiling together'>
+                </div>
+                <div class="team-content">
+                    <h2>Our Wonderful Volunteers</h2>
+                    <p>Our volunteers are the heartbeat of Happy Hooves. They bring the energy, the safety, and the snacks! Without their tireless dedication, our arena wouldn't be nearly as bright. Each volunteer is trained to provide support and encouragement, ensuring every session is filled with laughter and progress.</p>
+                    <div style="margin-top: 25px;">
+                        <a href="contact.html" style="background: var(--accent); color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: bold; display: inline-block;">Join the Team!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="story-section container">
+            <div class="story-blob">
+                <h2>A Day in the Life</h2>
+                <p>"Helping a rider mount their horse for the first time is a feeling like no other. You see the nerves melt away and turn into a beaming smile. It's not just about the riding; it's about witnessing that moment of pure empowerment."</p>
+                <p style="margin-top: 20px; font-style: italic; font-size: 1rem;">&mdash; Sarah, Lead Volunteer</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Happy Hooves</div>
+                    <p>Building confidence and connection through the magic of horses. Join our inclusive community today!</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px; color: var(--secondary);">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="our-program.html">Our Program</a></li>
+                        <li><a href="volunteers.html">Meet the Team</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px; color: var(--primary);">Visit Us</h4>
+                    <p>123 Sunny Lane<br>Pony Valley, PV1 2HP<br>United Kingdom</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Happy Hooves Riding Center. All rights reserved. 
+            </div>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="happy-hooves-riding-center"><script data-wb-form>
+(function(){var EP='https://website-builder-api-tb6m6slywa-uc.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='happy-hooves-riding-center';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
