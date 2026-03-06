@@ -3,320 +3,357 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vivid Lens | Photography by Design</title>
-    <meta name="description" content="High-impact landscape and wedding photography featuring bold colors and cinematic compositions.">
+    <title>Snap & Sparkle Photography | Capturing the Wild & The Wedded</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FF004D;
-            --secondary: #1A1A1A;
-            --accent: #00F0FF;
-            --background: #080808;
-            --text: #FFFFFF;
-            --header-bg: rgba(26, 26, 26, 0.8);
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --background: #F7FFF7;
+            --text: #292F36;
+            --white: #ffffff;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
+            font-family: 'Quicksand', sans-serif;
             background-color: var(--background);
             color: var(--text);
-            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
         h1, h2, h3 {
-            font-family: 'Anton', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            line-height: 1;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: 0.3s ease;
-        }
-
-        /* Header & Navigation */
-        header {
+        /* Navigation */
+        .nav-container {
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 800px;
             z-index: 1000;
-            background: var(--header-bg);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 12px 30px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
+            border: 2px solid var(--accent);
         }
 
         .logo {
-            font-family: 'Anton', sans-serif;
-            font-size: 1.8rem;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
             color: var(--primary);
-            text-shadow: 2px 2px var(--accent);
+            text-decoration: none;
+            font-weight: 700;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
 
-        #menu-toggle {
+        .mobile-menu-toggle {
             display: none;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
             cursor: pointer;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: var(--text);
-            transition: 0.3s;
+            font-size: 1.5rem;
         }
 
         /* Hero Section */
         .hero {
             position: relative;
             height: 100vh;
+            min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            color: var(--white);
             overflow: hidden;
+            padding: 0 20px;
         }
 
-        .hero-video {
+        .hero-video-container {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            filter: brightness(0.4) saturate(1.5);
             z-index: -1;
         }
 
-        .hero-content {
-            padding: 0 5%;
-            max-width: 900px;
-        }
-
-        .hero h1 {
-            font-size: clamp(4rem, 15vw, 10rem);
-            color: var(--text);
-            margin-bottom: 1rem;
-            line-height: 0.9;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        /* Impact Statement */
-        .impact {
-            background: var(--primary);
-            padding: 6rem 5%;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .impact h2 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            margin-bottom: 1.5rem;
-            color: var(--secondary);
-        }
-
-        .impact p {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text);
-        }
-
-        /* Dual Feature */
-        .dual-feature {
-            padding: 8rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .dual-feature .image-grid {
-            display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            grid-template-rows: repeat(10, 1fr);
-            height: 600px;
-        }
-
-        .dual-feature img {
+        .hero-video-container video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border: 2px solid var(--accent);
+            filter: brightness(0.6);
         }
 
-        .dual-feature img:nth-child(1) {
-            grid-column: 1 / 8;
-            grid-row: 1 / 8;
-            z-index: 2;
-        }
-
-        .dual-feature img:nth-child(2) {
-            grid-column: 4 / 11;
-            grid-row: 4 / 11;
+        .hero-content {
+            max-width: 800px;
             z-index: 1;
-            border-color: var(--primary);
         }
 
-        .dual-feature-content h2 {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            color: var(--accent);
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
         }
 
-        .dual-feature-content p {
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Bubbly Intro Section */
+        .intro-section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .intro-content p {
             font-size: 1.2rem;
-            border-left: 4px solid var(--primary);
-            padding-left: 1.5rem;
+            color: var(--text);
+        }
+
+        .blob-container {
+            position: relative;
+        }
+
+        .blob-img {
+            width: 100%;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            border: 8px solid var(--secondary);
+            animation: blobby 10s infinite alternate;
+        }
+
+        @keyframes blobby {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+
+        /* Highlight Section */
+        .highlight-section {
+            background-color: var(--secondary);
+            padding: 100px 20px;
+            border-radius: 100px 0 100px 0;
+            margin: 50px 20px;
+            color: var(--white);
+        }
+
+        .highlight-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .highlight-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 20px 20px 0 var(--accent);
+            transform: rotate(-3deg);
+        }
+
+        .highlight-content h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
         }
 
         /* Footer */
         footer {
-            padding: 4rem 5%;
-            background: var(--secondary);
+            padding: 60px 20px;
             text-align: center;
-            border-top: 5px solid var(--primary);
+            background: var(--text);
+            color: var(--white);
+            margin-top: 100px;
+        }
+
+        .footer-logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+            color: var(--accent);
         }
 
         /* Responsive */
-        @media (max-width: 968px) {
-            .dual-feature {
+        @media (max-width: 768px) {
+            .intro-section,
+            .highlight-container {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .dual-feature .image-grid {
-                height: 400px;
-            }
-            .hamburger {
-                display: flex;
-            }
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--secondary);
-                flex-direction: column;
-                padding: 2rem;
                 text-align: center;
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: 0.5s ease-in-out;
             }
-            #menu-toggle:checked ~ .nav-links {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+            .intro-section {
+                padding: 60px 20px;
+            }
+            
+            .highlight-img {
+                order: 2;
+                box-shadow: 10px 10px 0 var(--accent);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .highlight-content h2 {
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <div class="nav-container">
         <nav>
-            <div class="logo">VIVID LENS</div>
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+            <a href="#" class="logo">Snap & Sparkle</a>
             <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#services">Experiences</a>
-                <a href="#about">The Artist</a>
-                <a href="#contact">Book</a>
+                <a href="#">Home</a>
+                <a href="portfolio">The Goods</a>
+                <a href="the-experience">The Experience</a>
+                <a href="contact">Say Cheese!</a>
             </div>
+            <div class="mobile-menu-toggle">☰</div>
         </nav>
-    </header>
+    </div>
 
-    <main>
-        <section class="hero" id="home">
-            <video class="hero-video" autoplay muted loop playsinline>
+    <section class="hero">
+        <div class="hero-video-container">
+            <video autoplay muted loop playsinline>
                 <source src="WhatsApp Video 2026-02-05 at 20.33.52.mp4" type="video/mp4">
             </video>
-            <div class="hero-content">
-                <h1>LIFE IN TECHNICOLOR</h1>
-                <p>Where raw nature meets the most intimate human moments. We don't just take photos; we capture electricity.</p>
-            </div>
-        </section>
+        </div>
+        <div class="hero-content">
+            <h1>Capturing the Wild & The Wedded</h1>
+            <p>Life isn't linear, so why should your photos be? We capture the messy, the loud, and the breathtakingly quiet moments.</p>
+            <a href="contact" class="btn">Let's Make Magic</a>
+        </div>
+    </section>
 
-        <section class="impact">
-            <h2>Boldly Captured</h2>
-            <p>Breaking the mold of traditional photography with saturated palettes and high-energy compositions.</p>
-        </section>
+    <section class="intro-section">
+        <div class="blob-container">
+            <img src="WhatsApp Image 2026-02-05 at 20.33.27 (1).jpeg" alt="Photographer behind the lens" class="blob-img">
+        </div>
+        <div class="intro-content">
+            <h2>Hey there, I'm the one behind the lens!</h2>
+            <p>I believe photography should be as fun as the event itself. Whether you're hiking a mountain for that perfect sunset shot or dancing your heart out at your wedding, I'm there to catch the magic.</p>
+        </div>
+    </section>
 
-        <section class="dual-feature">
-            <div class="image-grid">
-                <img src="WhatsApp Image 2026-02-05 at 20.33.27 (1).jpeg" alt="Cinematic landscape photography">
-                <img src="WhatsApp Image 2026-02-05 at 20.33.27.jpeg" alt="Vibrant wedding photography">
+    <section class="highlight-section">
+        <div class="highlight-container">
+            <div class="highlight-content">
+                <h2>Landscapes & Love Stories</h2>
+                <p>From the peaks of the Andes to the 'I Dos' in the garden, we bring color and life to every frame.</p>
+                <a href="portfolio" class="btn" style="background-color: var(--accent); color: var(--text);">View The Goods</a>
             </div>
-            <div class="dual-feature-content">
-                <h2>The Portfolio Focus</h2>
-                <p>From the quiet majesty of mountain peaks to the ecstatic energy of your wedding day. We specialize in high-contrast visual storytelling that refuses to be ignored.</p>
-            </div>
-        </section>
-    </main>
+            <img src="WhatsApp Image 2026-02-05 at 20.33.27.jpeg" alt="Stunning landscape photography" class="highlight-img">
+        </div>
+    </section>
 
     <footer>
-        <div class="logo">VIVID LENS</div>
-        <p style="margin-top: 1rem;">&copy; 2024 Vivid Lens. All Rights Reserved. Stay Bold.</p>
+        <span class="footer-logo">Snap & Sparkle</span>
+        <p>&copy; 2024 Snap & Sparkle Photography. Made with joy and lots of sunshine.</p>
+        <div style="margin-top: 20px; font-size: 1.5rem; display: flex; justify-content: center; gap: 20px;">
+            <span>✨</span><span>📸</span><span>🏔️</span><span>💍</span>
+        </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close menu if open
-                document.getElementById('menu-toggle').checked = false;
-            });
+        // Simple mobile menu toggle
+        const toggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        toggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.style.flexDirection = 'column';
+            navLinks.style.position = 'absolute';
+            navLinks.style.top = '70px';
+            navLinks.style.left = '0';
+            navLinks.style.width = '100%';
+            navLinks.style.background = 'white';
+            navLinks.style.padding = '20px';
+            navLinks.style.borderRadius = '20px';
+            navLinks.style.textAlign = 'center';
+            navLinks.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
         });
     </script>
 </body>
