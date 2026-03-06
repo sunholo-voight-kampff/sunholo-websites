@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Founded on the principles of precision and patience, our bakery brings together three generations of culinary expertise.">
+    <title>Our Story | Lumière Pâtisserie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #F5F5F5;
+            --accent: #D4AF37;
+            --background: #FFFFFF;
+            --text: #2D2D2D;
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: var(--body-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--background);
+            border-bottom: 1px solid var(--primary);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        /* Hero / Split Section */
+        .split-section {
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 80vh;
+            align-items: stretch;
+        }
+
+        .split-image {
+            flex: 1 1 50%;
+            min-height: 400px;
+            position: relative;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(20%);
+        }
+
+        .split-content {
+            flex: 1 1 50%;
+            padding: 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: var(--background);
+        }
+
+        .split-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .split-content h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin-top: 1rem;
+        }
+
+        .split-content p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 500px;
+        }
+
+        /* Stats Bar */
+        .stats-section {
+            background-color: var(--primary);
+            color: var(--background);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .stats-section h2 {
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 3rem;
+            letter-spacing: 4px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .stat-number {
+            font-family: var(--heading-font);
+            font-size: 3rem;
+            color: var(--background);
+        }
+
+        .stat-label {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 5%;
+            background: var(--secondary);
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .copyright {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .split-image {
+                flex: 1 1 100%;
+                min-height: 300px;
+            }
+
+            .split-content {
+                flex: 1 1 100%;
+                padding: 3rem 1.5rem;
+            }
+
+            .split-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="home" class="logo">LUMIÈRE</a>
+        <nav>
+            <a href="home">Home</a>
+            <a href="portfolio">Gallery</a>
+            <a href="services">Services</a>
+            <a href="our-story" class="active">Our Story</a>
+            <a href="contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="split-section">
+            <div class="split-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.35.13.jpeg" alt="Artisanal baking process and architectural cake details">
+            </div>
+            <div class="split-content">
+                <h2>A Family Legacy</h2>
+                <p>
+                    Founded on the principles of precision and patience, our bakery brings together three generations of culinary expertise. 
+                    Every creation is a dialogue between the heritage of classic French technique and the clean, bold lines of modern architecture.
+                </p>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <h2>BY THE NUMBERS</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">15</span>
+                    <span class="stat-label">Years of Craft</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3,000+</span>
+                    <span class="stat-label">Celebrations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Family Vision</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">Lumière Pâtisserie</span>
+        <p class="copyright">&copy; 2024 Lumière Pâtisserie. Architectural Confectionery.</p>
+    </footer>
+
+    <script>
+        // Simple scroll behavior for header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '0.5rem 5%';
+                header.style.backgroundColor = 'rgba(255,255,255,0.95)';
+            } else {
+                header.style.padding = '1rem 5%';
+                header.style.backgroundColor = 'var(--background)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Lumière Pâtisserie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #F5F5F5;
+            --accent: #D4AF37;
+            --background: #FFFFFF;
+            --text: #2D2D2D;
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: var(--body-font);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #E0E0E0;
+            padding: 1.25rem 5%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: color 0.3s ease;
+            font-weight: 400;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 4px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 1px;
+            background-color: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            max-width: 600px;
+        }
+
+        .section-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .section-header p {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Contact Form Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem 0;
+            border: none;
+            border-bottom: 1px solid #E0E0E0;
+            font-family: var(--body-font);
+            font-size: 0.9rem;
+            background: transparent;
+            transition: border-color 0.3s ease;
+            outline: none;
+            border-radius: 0;
+        }
+
+        input:focus, textarea:focus {
+            border-bottom-color: var(--accent);
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: #FFF;
+            padding: 1.25rem 3rem;
+            border: none;
+            font-family: var(--body-font);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent);
+        }
+
+        /* Info Grid Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            background: var(--secondary);
+            padding: 4rem;
+        }
+
+        .info-item h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .info-item p {
+            font-size: 0.9rem;
+            color: var(--text);
+            white-space: pre-line;
+        }
+
+        footer {
+            border-top: 1px solid #E0E0E0;
+            padding: 4rem 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .copyright {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            .info-grid {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #FFF;
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+                border-bottom: 1px solid #E0E0E0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .section-header h1 {
+                font-size: 2rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav aria-label="Main Navigation">
+            <a href="home" class="logo">LUMIÈRE</a>
+            <button class="hamburger" id="menuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="home">Home</a></li>
+                <li><a href="portfolio">Gallery</a></li>
+                <li><a href="services">Services</a></li>
+                <li><a href="our-story">Our Story</a></li>
+                <li><a href="contact" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="contact-container">
+            <section class="contact-form-wrapper">
+                <div class="section-header">
+                    <h1>Begin Your Commission</h1>
+                    <p>Inquire about availability for your next event. Please include date and guest count.</p>
+                </div>
+
+                <form action="#" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="E.g. Alexander Sterling">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="event-type">Event Type</label>
+                        <select id="event-type" name="event-type">
+                            <option value="wedding">Bespoke Wedding Structure</option>
+                            <option value="corporate">Corporate Event</option>
+                            <option value="celebration">Private Celebration</option>
+                            <option value="other">Other Commission</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="details">Event Date & Guest Count</label>
+                        <textarea id="details" name="details" rows="4" required placeholder="Please specify your preferred date and estimated number of guests..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Inquiry</button>
+                </form>
+            </section>
+
+            <section class="studio-info">
+                <div class="section-header">
+                    <h1>Studio Details</h1>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h3>Location</h3>
+                        <p>128 Architectural Way<br>The Design District<br>Metropolis, 10012</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Hours</h3>
+                        <p>Private Tastings:<br>Tue – Sat: By Appointment<br>Sun – Mon: Closed</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Inquiries</h3>
+                        <p>studio@lumierepatisserie.com<br>+1 (555) 892-4000</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Social</h3>
+                        <p>@lumiere_patisserie<br>#ArchitectureOfFlavor</p>
+                    </div>
+                </div>
+                <p style="margin-top: 2rem; font-size: 0.8rem; font-style: italic; color: #888;">
+                    Located in the heart of the city. Open for private tastings by appointment only.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <span class="footer-logo">LUMIÈRE</span>
+        <p class="copyright">&copy; 2024 Lumière Pâtisserie. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const spans = menuToggle.getElementsByTagName('span');
+            if(navLinks.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modern artisanal bakery specializing in bespoke celebration cakes and architectural confectionery.">
+    <title>Services | Lumière Pâtisserie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1A1A1A;
+            --secondary: #F5F5F5;
+            --accent: #D4AF37;
+            --background: #FFFFFF;
+            --text: #2D2D2D;
+            --border: #E0E0E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--background);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 5%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 1px;
+            background: var(--primary);
+        }
+
+        /* Hero Section */
+        .page-header {
+            padding: 6rem 5% 3rem;
+            text-align: center;
+            background: var(--secondary);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+            color: var(--text);
+        }
+
+        /* Features List Section */
+        .features-section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .features-content h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .features-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .features-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .features-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .features-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            filter: grayscale(20%);
+        }
+
+        /* Pricing Table Section */
+        .pricing-section {
+            padding: 5rem 5% 8rem;
+            background-color: var(--background);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            border: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--accent);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .pricing-card p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .footer-info {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .features-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid var(--border);
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">LUMIÈRE</div>
+            <div class="menu-toggle" id="mobile-menu" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links" id="nav-list">
+                <a href="home.html">Home</a>
+                <a href="portfolio.html">Gallery</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="our-story.html">Our Story</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <h1>Services</h1>
+            <p>Architectural precision meets the culinary arts. We specialize in bespoke commissions that serve as the centerpiece for your most significant moments.</p>
+        </section>
+
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="features-content">
+                    <h2>Our Specializations</h2>
+                    <p>From tiered wedding structures to minimalist birthday slabs, we offer a range of professional baking services focused on sharp lines and pure ingredients.</p>
+                    <ul class="features-list">
+                        <li>Structural Wedding Tiers</li>
+                        <li>Minimalist Celebration Slabs</li>
+                        <li>Architectural Sugar Work</li>
+                        <li>Corporate Branding Commissions</li>
+                        <li>Private Tasting Consultations</li>
+                    </ul>
+                </div>
+                <div class="features-image">
+                    <img src="WhatsApp Image 2026-02-05 at 20.35.13 (1).jpeg" alt="Close-up of a minimalist cake with sharp architectural edges">
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section">
+            <div class="pricing-header">
+                <h2>Investment</h2>
+                <p>Every piece is a unique commission. Below is a guide to our starting rates.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Bespoke Pieces</h3>
+                    <span class="price">$250+</span>
+                    <p>Signature single-tier designs for intimate celebrations and private events.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Multi-Tier Structures</h3>
+                    <span class="price">$800+</span>
+                    <p>Grand architectural cakes designed for weddings and large-scale corporate events.</p>
+                </div>
+                <div class="pricing-card">
+                    <h3>Design Consultation</h3>
+                    <span class="price">$75</span>
+                    <p>Private 1-hour session including flavor tasting and structural sketching. (Credited toward commission)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">LUMIÈRE PÂTISSERIE</span>
+        <p class="footer-info">By Appointment Only &bull; City Center Studio &bull; Est. 2009</p>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
