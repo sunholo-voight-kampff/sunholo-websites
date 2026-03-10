@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lessons & Hacks | Cornish Coast Equestrian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4A5D4E;
+            --secondary: #D4C5B9;
+            --accent: #8C7A6B;
+            --background: #F9F7F2;
+            --text: #2C2C2C;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            color: var(--primary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(249, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(74, 93, 78, 0.1);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        #nav-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* Hero / Page Intro */
+        .page-header {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header .subtitle {
+            font-size: 1.1rem;
+            color: var(--accent);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Split Section */
+        .split-section {
+            padding: 6rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .split-image {
+            position: relative;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .split-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .split-content p {
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+
+        /* Pricing Grid */
+        .pricing-section {
+            padding: 6rem 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .price-card {
+            background: var(--background);
+            padding: 3rem 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(212, 197, 185, 0.3);
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .price-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .price-card .cost {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .footer-info h4 {
+            color: var(--white);
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .split-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .split-image img {
+                height: 400px;
+            }
+            .pricing-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .page-header h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                text-align: center;
+                display: none;
+                border-bottom: 1px solid var(--secondary);
+            }
+            #nav-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+            .page-header {
+                padding: 6rem 0 3rem;
+            }
+            .split-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="index.html" class="logo">Cornish Coast Equestrian</a>
+            
+            <input type="checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="lessons-and-hacks.html" class="active">Lessons & Hacks</a>
+                <a href="pony-parties.html">Pony Parties</a>
+                <a href="our-stables.html">The Stables</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Lessons & Hacks</h1>
+                <p class="subtitle">Refined equestrian experiences tailored to your journey, set against the majestic Atlantic coastline.</p>
+            </div>
+        </section>
+
+        <section class="container split-section">
+            <div class="split-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.35.04.jpeg" alt="A rider practicing in the arena">
+            </div>
+            <div class="split-content">
+                <h2>Refined Instruction</h2>
+                <p>Our expert handlers guide you through every step, ensuring safety and confidence. Whether you are a beginner or looking to refine your technique, our horses are the perfect partners.</p>
+                <p>We believe in a holistic approach to riding, focusing on the connection between horse and rider, posture, and the subtle cues that create a harmonious partnership.</p>
+                <a href="contact.html" class="btn">Inquire Today</a>
+            </div>
+        </section>
+
+        <section class="pricing-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Investment</h2>
+                    <p>Premium experiences at the heart of the coast.</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <h3>Individual Lesson</h3>
+                        <span class="cost">£45</span>
+                        <p>One-on-one focused instruction in our private arena. Perfect for building foundation or technical skill.</p>
+                        <a href="contact.html" class="btn">Book Session</a>
+                    </div>
+
+                    <div class="price-card">
+                        <h3>Group Hack (1 Hour)</h3>
+                        <span class="cost">£35</span>
+                        <p>A social riding experience through our local bridleways. Ideal for intermediate riders.</p>
+                        <a href="contact.html" class="btn">Book Hack</a>
+                    </div>
+
+                    <div class="price-card">
+                        <h3>Coastal Trek (Half Day)</h3>
+                        <span class="cost">£85</span>
+                        <p>The ultimate Cornish experience. Guided trek through rugged cliffs and sandy shores.</p>
+                        <a href="contact.html" class="btn">Book Trek</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <span class="footer-logo">Cornish Coast Equestrian</span>
+                    <p>A sanctuary for riders in the heart of Cornwall. Experience the timeless bond between horse and nature.</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Navigation</h4>
+                    <ul style="display: grid; gap: 0.5rem;">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="lessons-and-hacks.html">Lessons & Hacks</a></li>
+                        <li><a href="pony-parties.html">Pony Parties</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h4>Visit Us</h4>
+                    <p>High Moor Lane<br>Cornwall, TR12<br>01872 555 0123</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Cornish Coast Equestrian. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="cornish-coast-equestrian"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='cornish-coast-equestrian';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
