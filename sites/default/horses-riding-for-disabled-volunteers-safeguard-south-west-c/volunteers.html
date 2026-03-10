@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Team | Cornwall Equine Access</title>
+    <meta name="description" content="Empowering lives through therapeutic riding and community volunteering in the heart of South West Cornwall.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E63946;
+            --secondary: #1D3557;
+            --accent: #FFB703;
+            --background: #F1FAEE;
+            --text: #1D3557;
+            --border-width: 4px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Sticky Oversized Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--secondary);
+            color: var(--background);
+            border-bottom: var(--border-width) solid var(--text);
+            padding: 1rem 5%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            max-width: 200px;
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+        }
+
+        /* Hamburger Toggle */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 35px;
+            height: 5px;
+            background: var(--background);
+            border: 2px solid var(--text);
+        }
+
+        #menu-toggle:checked ~ .nav-links {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--accent);
+            padding: 2rem;
+            border-bottom: var(--border-width) solid var(--text);
+        }
+
+        .nav-links li {
+            margin: 1rem 0;
+        }
+
+        .nav-links a {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Brutalist Layout Elements */
+        section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cta-split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .cta-content {
+            background: var(--primary);
+            color: white;
+            padding: 3rem;
+            border: var(--border-width) solid var(--secondary);
+            box-shadow: 12px 12px 0px var(--accent);
+            z-index: 2;
+        }
+
+        .cta-content h1 {
+            font-size: clamp(3rem, 10vw, 5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-image-container {
+            position: relative;
+        }
+
+        .cta-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: var(--border-width) solid var(--secondary);
+            filter: grayscale(20%);
+        }
+
+        .cta-image-container::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            border: var(--border-width) solid var(--primary);
+            z-index: -1;
+        }
+
+        /* Checklist Section */
+        .checklist-section {
+            background: var(--accent);
+            border-top: var(--border-width) solid var(--secondary);
+            border-bottom: var(--border-width) solid var(--secondary);
+            margin: 4rem 0;
+            transform: rotate(-1deg);
+            width: 110%;
+            margin-left: -5%;
+        }
+
+        .checklist-inner {
+            transform: rotate(1deg);
+            padding: 4rem 10%;
+        }
+
+        .checklist-section h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .check-item {
+            background: var(--background);
+            padding: 2rem;
+            border: var(--border-width) solid var(--secondary);
+            box-shadow: 6px 6px 0px var(--primary);
+        }
+
+        .check-item h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--secondary);
+            padding: 1rem 2rem;
+            font-family: 'Archivo Black', sans-serif;
+            border: var(--border-width) solid var(--secondary);
+            box-shadow: 6px 6px 0px var(--secondary);
+            transition: all 0.2s;
+            margin-top: 2rem;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 10px 10px 0px var(--secondary);
+        }
+
+        footer {
+            background: var(--secondary);
+            color: var(--background);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+            }
+
+            .hamburger {
+                display: none;
+            }
+
+            .cta-split {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+
+            .cta-content {
+                margin-right: -100px;
+            }
+
+            .nav-links a:hover {
+                color: var(--accent);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">CORNWALL EQUINE ACCESS</div>
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="riding.html">Programs</a></li>
+                <li><a href="volunteers.html">Volunteer</a></li>
+                <li><a href="safeguarding.html">Safeguarding</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- CTA Split Section -->
+        <section class="cta-split">
+            <div class="cta-content">
+                <h1>BE THE CHANGE</h1>
+                <p>We are looking for energetic volunteers to help with stable management and riding assistance. No experience? We train you!</p>
+                <a href="contact.html" class="btn">APPLY NOW</a>
+            </div>
+            <div class="cta-image-container">
+                <img src="IMG_7094.jpeg" alt="Volunteer working with a horse at Cornwall Equine Access">
+            </div>
+        </section>
+
+        <!-- Checklist Section -->
+        <div class="checklist-section">
+            <div class="checklist-inner">
+                <h2>Why Volunteer?</h2>
+                <div class="checklist-grid">
+                    <div class="check-item">
+                        <h3>Horse Care</h3>
+                        <p>Learn the ins and outs of equine management, from grooming to stable maintenance.</p>
+                    </div>
+                    <div class="check-item">
+                        <h3>Community</h3>
+                        <p>Support your local community and make a real difference in the lives of our riders.</p>
+                    </div>
+                    <div class="check-item">
+                        <h3>Certified</h3>
+                        <p>Gain certified safeguarding training and professional development in therapeutic riding.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional CTA for Volunteers -->
+        <section style="text-align: center;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to start?</h2>
+            <p style="max-width: 600px; margin: 0 auto 2rem;">Fill out our quick interest form and our volunteer coordinator will get in touch with you within 48 hours.</p>
+            
+            <form action="#" method="POST" style="max-width: 500px; margin: 0 auto; text-align: left; background: white; padding: 2rem; border: var(--border-width) solid var(--secondary); box-shadow: 8px 8px 0px var(--primary);">
+                <input type='text' name='_hp' style='display:none' tabindex='-1' autocomplete='off'>
+                
+                <div style="margin-bottom: 1rem;">
+                    <label style="display:block; font-weight:bold; margin-bottom: 0.5rem;">Full Name</label>
+                    <input type="text" required style="width:100%; padding: 0.8rem; border: 2px solid var(--secondary); font-family: inherit;">
+                </div>
+                
+                <div style="margin-bottom: 1rem;">
+                    <label style="display:block; font-weight:bold; margin-bottom: 0.5rem;">Email Address</label>
+                    <input type="email" required style="width:100%; padding: 0.8rem; border: 2px solid var(--secondary); font-family: inherit;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display:block; font-weight:bold; margin-bottom: 0.5rem;">Previous Experience (Optional)</label>
+                    <textarea style="width:100%; padding: 0.8rem; border: 2px solid var(--secondary); font-family: inherit; height: 100px;"></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width:100%; margin-top: 0;">SEND APPLICATION</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div style="font-family: 'Archivo Black', sans-serif; font-size: 1.2rem; margin-bottom: 1rem;">CORNWALL EQUINE ACCESS</div>
+        <p>&copy; 2023 Cornwall Equine Access. South West Cornwall. All rights reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">Registered Charity | Safeguarding First</p>
+    </footer>
+
+<meta name="wb-site" content="horses-riding-for-disabled-volunteers-safeguard-south-west-c"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='horses-riding-for-disabled-volunteers-safeguard-south-west-c';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

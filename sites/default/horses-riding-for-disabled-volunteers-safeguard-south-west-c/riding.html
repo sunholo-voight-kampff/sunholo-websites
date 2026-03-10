@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riding Programs | Cornwall Equine Access</title>
+    <meta name="description" content="Tailored therapeutic riding sessions designed for physical rehabilitation and emotional growth in South West Cornwall.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E63946;
+            --secondary: #1D3557;
+            --accent: #FFB703;
+            --background: #F1FAEE;
+            --text: #1D3557;
+            --border-width: 5px;
+            --shadow-offset: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        /* Navigation */
+        .header-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--primary);
+            border-bottom: var(--border-width) solid var(--secondary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            color: var(--background);
+            text-decoration: none;
+            border: 3px solid var(--background);
+            padding: 5px 10px;
+            transform: rotate(-2deg);
+            transition: transform 0.2s;
+        }
+
+        .logo:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            font-family: 'Archivo Black', sans-serif;
+            text-decoration: none;
+            color: var(--background);
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 4px;
+            background: var(--background);
+            border: 1px solid var(--secondary);
+        }
+
+        /* Layout Components */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .brutalist-box {
+            background: white;
+            border: var(--border-width) solid var(--secondary);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px var(--accent);
+            padding: 2rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(3rem, 10vw, 6rem);
+            margin-bottom: 2rem;
+            background: var(--secondary);
+            color: var(--accent);
+            display: inline-block;
+            padding: 1rem;
+            transform: skewX(-5deg);
+            margin-left: -1rem;
+        }
+
+        /* Program Grid Section */
+        .program-intro {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .program-card {
+            background: var(--accent);
+            border: var(--border-width) solid var(--secondary);
+            padding: 2rem;
+            transform: rotate(1deg);
+        }
+
+        .program-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-card p {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        /* Video Feature Section */
+        .video-container {
+            position: relative;
+            margin-top: 4rem;
+        }
+
+        .video-wrapper {
+            border: var(--border-width) solid var(--secondary);
+            background: var(--secondary);
+            line-height: 0;
+            overflow: hidden;
+            box-shadow: -15px 15px 0px var(--primary);
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            filter: grayscale(20%);
+        }
+
+        .video-overlay-text {
+            position: absolute;
+            bottom: -2rem;
+            right: 2rem;
+            background: var(--primary);
+            color: white;
+            padding: 2rem;
+            max-width: 400px;
+            border: var(--border-width) solid var(--secondary);
+            z-index: 10;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--background);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 10px solid var(--accent);
+        }
+
+        .footer-logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 2rem;
+                border-bottom: var(--border-width) solid var(--secondary);
+            }
+
+            .nav-toggle:checked ~ .nav-menu {
+                display: flex;
+            }
+
+            .program-intro {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 3rem;
+                transform: none;
+                margin-left: 0;
+            }
+
+            .video-overlay-text {
+                position: static;
+                margin-top: 1rem;
+                max-width: 100%;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-nav">
+        <a href="index.html" class="logo">CORNWALL EQUINE</a>
+        
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="hamburger" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav class="nav-menu">
+            <a href="index.html">HOME</a>
+            <a href="riding.html">PROGRAMS</a>
+            <a href="volunteers.html">VOLUNTEERS</a>
+            <a href="safeguarding.html">SAFEGUARDING</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1 class="section-title">Therapeutic Riding</h1>
+            
+            <div class="program-intro">
+                <div class="brutalist-box">
+                    <p style="font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 1rem;">BEYOND THE SADDLE</p>
+                    <p>Experience the power of equine therapy in South West Cornwall. We provide life-changing riding opportunities for the disabled community, focusing on what's possible rather than what's restricted.</p>
+                </div>
+
+                <div class="program-card">
+                    <h3>Our Sessions</h3>
+                    <p>Tailored sessions designed for physical rehabilitation and emotional growth. Every rider is unique, and our programs reflect that individuality with specialized equipment and expert guidance.</p>
+                </div>
+            </div>
+
+            <div class="video-feature">
+                <h2 style="font-size: 2.5rem; margin-top: 4rem; margin-bottom: 1rem;">The Joy of Movement</h2>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video autoplay muted loop playsinline poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+                            <source src="f3706237-693b-4294-a296-463c3e22c5e8.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-overlay-text">
+                        <h3 style="margin-bottom: 1rem;">Unbreakable Bonds</h3>
+                        <p>Watch the pure connection between our riders and their equine partners. It’s more than exercise; it’s a language of trust and shared strength that transcends words.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="background: var(--accent); border-top: var(--border-width) solid var(--secondary);">
+            <div style="text-align: center;">
+                <h2 style="font-size: 3rem; margin-bottom: 2rem;">Ready to Start?</h2>
+                <p style="font-weight: 900; font-size: 1.2rem; margin-bottom: 2rem;">WE ARE CURRENTLY ACCEPTING NEW RIDER APPLICATIONS.</p>
+                <a href="contact.html" style="display: inline-block; background: var(--secondary); color: white; padding: 1.5rem 3rem; font-family: 'Archivo Black'; text-decoration: none; border: var(--border-width) solid var(--primary); transform: rotate(-1deg);">BOOK AN ASSESSMENT</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">CORNWALL EQUINE ACCESS</span>
+        <p>&copy; 2023 Cornwall Equine Access. Registered Charity. South West Cornwall, UK.</p>
+        <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem;">
+            <a href="safeguarding.html" style="color: var(--accent); font-weight: bold;">Safeguarding Policy</a>
+            <a href="contact.html" style="color: var(--accent); font-weight: bold;">Location</a>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="horses-riding-for-disabled-volunteers-safeguard-south-west-c"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='horses-riding-for-disabled-volunteers-safeguard-south-west-c';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
