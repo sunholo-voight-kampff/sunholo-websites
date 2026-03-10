@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beyond the lens: Discover Ethereal Frames' impact on community storytelling and upcoming photography events.">
+    <title>Impact & Events | Ethereal Frames</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C3E50;
+            --secondary: #A8BBA1;
+            --accent: #D4AF37;
+            --background: #F9F7F2;
+            --text: #333333;
+            --white: #ffffff;
+            --glass: rgba(249, 247, 242, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(44, 62, 80, 0.1);
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary);
+            transition: 0.3s;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+            margin: 1rem auto 0;
+        }
+
+        /* Story Timeline */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .timeline-content {
+            padding-right: 2rem;
+        }
+
+        .timeline-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .timeline-images img:nth-child(2) {
+            margin-top: 3rem;
+        }
+
+        /* Press Feature */
+        .press-feature {
+            background: var(--primary);
+            color: var(--white);
+            padding: 6rem 0;
+            margin: 4rem 0;
+        }
+
+        .press-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .press-feature h2 {
+            color: var(--white);
+        }
+
+        .press-feature p {
+            font-style: italic;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            border-left: 3px solid var(--accent);
+            padding-left: 1.5rem;
+        }
+
+        /* Event Flyers */
+        .flyer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .flyer-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .flyer-card img {
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            width: 100%;
+            height: auto;
+        }
+
+        .flyer-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(44, 62, 80, 0.1);
+            background: var(--white);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .timeline-grid, .press-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .timeline-content {
+                padding-right: 0;
+                text-align: center;
+            }
+            .timeline-images img:nth-child(2) {
+                margin-top: 0;
+            }
+            .press-grid .press-image {
+                order: 2;
+            }
+            .press-grid .press-text {
+                order: 1;
+                text-align: center;
+            }
+            .press-feature p {
+                border-left: none;
+                border-top: 1px solid var(--accent);
+                padding: 1.5rem 0 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                gap: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                display: none;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .flyer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Ethereal Frames</a>
+                
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="community-impact.html">Impact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Story Timeline Section -->
+        <section id="story-timeline">
+            <div class="container">
+                <div class="timeline-grid">
+                    <div class="timeline-content">
+                        <div class="section-header" style="text-align: left; margin-left: 0;">
+                            <h2>Beyond the Lens</h2>
+                            <p>Our work extends into the heart of the community, documenting events and individuals who make a difference. We believe that photography is a tool for social connection and historical preservation.</p>
+                        </div>
+                        <p style="margin-bottom: 1.5rem;">Through our partnerships with local non-profits and cultural organizations, we aim to amplify voices that often go unheard, capturing the raw emotion and collective spirit of our neighborhood.</p>
+                    </div>
+                    <div class="timeline-images">
+                        <img src="WhatsApp Image 2026-02-05 at 20.25.31.jpeg" alt="Community gathering documented by Ethereal Frames">
+                        <img src="WhatsApp Image 2026-02-05 at 20.33.09 (1).jpeg" alt="Behind the scenes of a community project">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Press Feature Section -->
+        <section class="press-feature">
+            <div class="container">
+                <div class="press-grid">
+                    <div class="press-image">
+                        <img src="WhatsApp Image 2026-02-05 at 20.25.31 (2).jpeg" alt="Newspaper feature of Ethereal Frames">
+                    </div>
+                    <div class="press-text">
+                        <h2>In the News</h2>
+                        <p>"Our community work has been recognized for its dedication to authentic storytelling and social awareness. By focusing on the human element, Ethereal Frames brings a cinematic quality to local journalism."</p>
+                        <div style="margin-top: 2rem; font-weight: 500; color: var(--accent);">— Local Arts Gazette</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Flyers Section -->
+        <section id="event-flyers">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Upcoming Collaborations</h2>
+                    <p>Join us at our upcoming gallery showings and community workshops. We invite you to be part of the visual narrative we are building together.</p>
+                </div>
+                <div class="flyer-grid">
+                    <div class="flyer-card">
+                        <img src="WhatsApp Image 2026-02-05 at 20.33.09 (2).jpeg" alt="Photography Workshop Flyer">
+                    </div>
+                    <div class="flyer-card">
+                        <img src="WhatsApp Image 2026-02-05 at 20.33.09.jpeg" alt="Art Gallery Exhibition Flyer">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo">Ethereal Frames</span>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Vero</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <p class="copyright">&copy; 2024 Ethereal Frames | Photography by Design. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="my-photography-portfolio-landscapes-and-weddings"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='my-photography-portfolio-landscapes-and-weddings';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
