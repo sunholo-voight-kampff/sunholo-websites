@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pony Parties | Cornish Canter Riding Stables</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FFD166;
+            --secondary: #06D6A0;
+            --accent: #EF476F;
+            --background: #FFFCF2;
+            --text: #2B2D42;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .nav-toggle-label span,
+        .nav-toggle-label span::before,
+        .nav-toggle-label span::after {
+            display: block;
+            background: var(--text);
+            height: 3px;
+            width: 25px;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .nav-toggle-label span::before,
+        .nav-toggle-label span::after {
+            content: '';
+            position: absolute;
+        }
+
+        .nav-toggle-label span::before { bottom: 8px; }
+        .nav-toggle-label span::after { top: 8px; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            border: 2px solid transparent;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--primary);
+            border-color: var(--text);
+            transform: translateY(-2px);
+        }
+
+        nav li:nth-child(2n) a:hover, nav li:nth-child(2n) a.active {
+            background-color: var(--secondary);
+        }
+
+        nav li:nth-child(3n) a:hover, nav li:nth-child(3n) a.active {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        /* Hero Section */
+        .party-hero {
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .party-hero h1 {
+            font-size: 3.5rem;
+            color: var(--accent);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 40px 100px 40px 100px;
+            border: 10px solid var(--secondary);
+            box-shadow: 20px 20px 0 var(--primary);
+            object-fit: cover;
+        }
+
+        /* Checklist Section */
+        .checklist-section {
+            background-color: var(--primary);
+            padding: 5rem 2rem;
+            margin: 4rem 0;
+            border-radius: 100px 0 100px 0;
+        }
+
+        .checklist-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .checklist-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 30px;
+            box-shadow: 8px 8px 0 rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        /* Contact Form Snippet */
+        .inquiry-section {
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            background: var(--white);
+            border-radius: 40px;
+            border: 4px dashed var(--accent);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 15px;
+            border: 2px solid #ddd;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .btn-submit {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--text);
+            transform: scale(1.02);
+        }
+
+        footer {
+            background-color: var(--text);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .nav-toggle-label {
+                display: block;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                transform: scale(1, 0);
+                transform-origin: top;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center;
+            }
+
+            .nav-toggle:checked ~ nav {
+                transform: scale(1, 1);
+            }
+
+            .party-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .wave-bottom {
+            width: 100%;
+            height: 50px;
+            background-image: radial-gradient(circle at 50% 100%, var(--primary) 20px, transparent 21px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Cornish Canter</a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lessons-and-hacks.html">Lessons & Hacks</a></li>
+                <li><a href="pony-parties.html" class="active">Pony Parties</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="party-hero">
+            <div class="hero-content">
+                <h1>The Best Birthday Ever!</h1>
+                <p>Give your child a birthday they will never forget with grooming, riding, and party games. At Cornish Canter, we turn pony dreams into magical memories!</p>
+            </div>
+            <div class="hero-image-container">
+                <img src="IMG_3005.jpeg" alt="Children smiling at a pony party" class="hero-image">
+            </div>
+        </section>
+
+        <section class="checklist-section">
+            <div class="checklist-container">
+                <h2>What's Included?</h2>
+                <p>Everything you need for a stress-free, high-energy stable celebration.</p>
+                
+                <div class="checklist-grid">
+                    <div class="checklist-item">
+                        <div class="icon-circle">🦄</div>
+                        <h3>Grooming Session</h3>
+                        <p>Learn how to brush and pamper our friendly ponies.</p>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="icon-circle">🏇</div>
+                        <h3>30-Minute Ride</h3>
+                        <p>A fun-filled lead rein ride around our colorful paddock.</p>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="icon-circle">🏅</div>
+                        <h3>Rosette for All</h3>
+                        <p>Every child takes home a beautiful commemorative rosette.</p>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="icon-circle">🎈</div>
+                        <h3>Party Room</h3>
+                        <p>A fully decorated room ready for your cake and snacks.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="inquiry-section">
+            <h2 style="text-align:center; margin-bottom: 2rem;">Check Availability</h2>
+            <form action="#" method="POST">
+                <input type='text' name='_hp' style='display:none' tabindex='-1' autocomplete='off'>
+                
+                <div class="form-group">
+                    <label for="parent-name">Parent's Name</label>
+                    <input type="text" id="parent-name" name="parent-name" required placeholder="Your Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="hello@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="party-date">Preferred Date</label>
+                    <input type="date" id="party-date" name="party-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Number of Children</label>
+                    <select id="guests" name="guests">
+                        <option value="4-6">4 to 6 Children</option>
+                        <option value="7-10">7 to 10 Children</option>
+                        <option value="10+">More than 10</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Any Special Requests?</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="Tell us about the birthday star!"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Send Party Request!</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Cornish Canter Riding Stables. Made with &hearts; in Cornwall.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Follow us for more pony fun!</p>
+    </footer>
+
+<meta name="wb-site" content="cornish-canter-riding-stables"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='cornish-canter-riding-stables';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

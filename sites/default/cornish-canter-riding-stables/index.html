@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornish Canter Riding Stables | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FFD166;
+            --secondary: #06D6A0;
+            --accent: #EF476F;
+            --background: #FFFCF2;
+            --text: #2B2D42;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka', sans-serif;
+            color: var(--text);
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--background);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        #menu-checkbox {
+            display: none;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-top: 2rem;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+            border: 8px solid var(--primary);
+            box-shadow: 15px 15px 0 var(--secondary);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 0 #c13154;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #f05a7d;
+        }
+
+        /* Feature Bubbles */
+        .feature-bubbles {
+            text-align: center;
+            background: var(--primary);
+            border-radius: 100px 20px 100px 20px;
+            margin: 4rem auto;
+            padding: 4rem 2rem;
+        }
+
+        .feature-bubbles h2 {
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .bubble-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .bubble-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 50%;
+            aspect-ratio: 1/1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 5px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .bubble-item:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        /* Image-Text Split */
+        .split-section {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin: 4rem auto;
+        }
+
+        .split-section.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .split-image {
+            flex: 1;
+        }
+
+        .split-image img {
+            width: 100%;
+            border-radius: 30px;
+            border: 8px solid var(--secondary);
+            clip-path: polygon(0% 15%, 100% 0%, 100% 85%, 0% 100%);
+        }
+
+        .split-content {
+            flex: 1;
+        }
+
+        .split-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-top-left-radius: 50% 10%;
+            border-top-right-radius: 50% 10%;
+        }
+
+        .footer-nav {
+            margin-bottom: 2rem;
+        }
+
+        .footer-nav a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                color: var(--text);
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            }
+
+            #menu-checkbox:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .split-section {
+                flex-direction: column !important;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .bubble-item {
+                aspect-ratio: auto;
+                border-radius: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Cornish Canter 🐴</a>
+            <input type="checkbox" id="menu-checkbox">
+            <label for="menu-checkbox" class="menu-toggle">☰</label>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="lessons-and-hacks.html">Lessons & Hacks</a>
+                <a href="pony-parties.html">Pony Parties</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Gallop into Fun!</h1>
+                <p>Welcome to Cornwall's most colorful riding stables. From first-time riders to coastal explorers, we have a pony waiting for you!</p>
+                <a href="contact.html" class="cta-button">Book Your Ride!</a>
+            </div>
+            <div class="hero-image">
+                <img src="IMG_3006.jpeg" alt="Happy rider on a pony in Cornwall">
+            </div>
+        </section>
+
+        <!-- Feature Bubbles Section -->
+        <section class="feature-bubbles">
+            <h2>What we do best</h2>
+            <p style="max-width: 700px; margin: 0 auto;">Whether you want to learn the basics or trot along the beach, we make every ride an adventure.</p>
+            <div class="bubble-grid">
+                <div class="bubble-item">
+                    <h3>Lessons</h3>
+                    <p>Expert tuition for all ages and abilities.</p>
+                </div>
+                <div class="bubble-item">
+                    <h3>Hacks</h3>
+                    <p>Scenic trails across the Cornish coast.</p>
+                </div>
+                <div class="bubble-item">
+                    <h3>Parties</h3>
+                    <p>Unforgettable pony birthdays!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image-Text Split Section -->
+        <section class="split-section">
+            <div class="split-image">
+                <img src="IMG_3006.jpeg" alt="Coastal horse riding hack">
+            </div>
+            <div class="split-content">
+                <h2>Coastal Hacks</h2>
+                <p>Experience the magic of the Cornish coastline on horseback. Our guided hacks take you through breathtaking trails and sandy shores. There's nothing quite like the sea breeze in your mane!</p>
+                <br>
+                <a href="lessons-and-hacks.html" class="cta-button" style="background-color: var(--secondary); box-shadow: 0 4px 0 #04a57b;">Explore Trails</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="lessons-and-hacks.html">Lessons</a>
+            <a href="pony-parties.html">Parties</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <p>&copy; 2023 Cornish Canter Riding Stables. All rights reserved. <br> Made with ❤️ in Cornwall.</p>
+    </footer>
+
+<meta name="wb-site" content="cornish-canter-riding-stables"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='cornish-canter-riding-stables';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
