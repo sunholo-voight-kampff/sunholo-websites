@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Earth & Heart Photography</title>
+    <meta name="description" content="Explore our photography packages for weddings, portraits, and branding. Warm, rustic, and professional services tailored to your story.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #B08968;
+            --secondary: #E6CCB2;
+            --accent: #7F5539;
+            --background: #EDE0D4;
+            --text: #432818;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(67, 40, 24, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s ease;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--background);
+            padding: 2rem 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            border-top: 1px solid rgba(176, 137, 104, 0.2);
+            border-bottom: 1px solid rgba(176, 137, 104, 0.2);
+            padding: 1rem 0;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 400;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            padding: 1rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--primary);
+            margin: 1rem auto;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .features-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 40px 10px 40px 10px;
+            box-shadow: var(--shadow);
+            display: block;
+        }
+
+        .features-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .features-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Pricing Table */
+        .pricing-section {
+            background-color: rgba(230, 204, 178, 0.3);
+            border-radius: 50px;
+            margin-top: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .price-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .price-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price-tag {
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .price-card li {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--accent);
+            color: var(--secondary);
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem 0;
+            }
+
+            .hamburger {
+                display: inline-block;
+            }
+
+            #menu-toggle:checked ~ nav {
+                display: flex;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 3rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Earth & Heart</a>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="features-grid-section">
+            <div class="features-grid">
+                <div class="features-image">
+                    <img src="WhatsApp Image 2026-02-05 at 20.33.09 (2).jpeg" alt="Photography session setup with rustic elements">
+                </div>
+                <div class="features-content">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Photography Packages</h2>
+                    <p>We believe every story deserves to be told with intention and warmth. Whether it's the nervous excitement of a wedding morning or the quiet connection of a family walk in the woods, our sessions are designed to be relaxed, natural, and deeply personal.</p>
+                    <p>We offer tailored sessions for weddings, family portraits, and commercial rustic branding, ensuring that the final images reflect your unique spirit.</p>
+                    <a href="contact.html" class="cta-button">Book a Session</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section">
+            <h2 class="section-title">Investment</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">Quality photography is an investment in your legacy. We offer transparent pricing to help you plan your special moments.</p>
+            
+            <div class="pricing-container">
+                <div class="price-card">
+                    <h4>Weddings</h4>
+                    <span class="price-tag">from $2,500</span>
+                    <ul>
+                        <li>Full day coverage</li>
+                        <li>Two photographers</li>
+                        <li>Online gallery</li>
+                        <li>USB Keepsake</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Inquire</a>
+                </div>
+
+                <div class="price-card">
+                    <h4>Portraits</h4>
+                    <span class="price-tag">from $350</span>
+                    <ul>
+                        <li>90 Minute Session</li>
+                        <li>Natural Location</li>
+                        <li>25 Edited Images</li>
+                        <li>Personal License</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">Book Now</a>
+                </div>
+
+                <div class="price-card">
+                    <h4>Landscapes</h4>
+                    <span class="price-tag">Custom</span>
+                    <ul>
+                        <li>Fine Art Prints</li>
+                        <li>Commercial Licensing</li>
+                        <li>Custom Framing</li>
+                        <li>Global Shipping</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button">View Prints</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">Earth & Heart Photography</span>
+        <p>&copy; 2023 Earth & Heart. Capturing life's tender, rustic beauty.</p>
+        <div style="margin-top: 1.5rem;">
+            <a href="portfolio.html" style="margin: 0 10px;">Portfolio</a>
+            <a href="contact.html" style="margin: 0 10px;">Contact</a>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="earth-heart-photography"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='earth-heart-photography';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

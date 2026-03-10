@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth & Heart Photography | Warm & Rustic Memories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #B08968;
+            --secondary: #E6CCB2;
+            --accent: #7F5539;
+            --background: #EDE0D4;
+            --text: #432818;
+            --white: #ffffff;
+            --soft-shadow: 0 10px 30px rgba(67, 40, 24, 0.08);
+            --radius: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .heading-font {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            color: var(--accent);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        img, video {
+            max-width: 100%;
+            display: block;
+            border-radius: var(--radius);
+            box-shadow: var(--soft-shadow);
+        }
+
+        /* Navigation */
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            margin: 0 auto;
+            width: 30px;
+        }
+
+        .hamburger span {
+            height: 2px;
+            width: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Layout Sections */
+        section {
+            padding: 5rem 10%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding-top: 2rem;
+        }
+
+        .hero-image-container {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 70vh;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        /* Split Image Text */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .split-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Video Highlight */
+        .video-section {
+            text-align: center;
+            background-color: var(--secondary);
+            border-radius: var(--radius);
+            margin: 4rem 5%;
+            padding: 5rem 2rem;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .video-container video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        /* Buttons */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            padding: 4rem 10%;
+            text-align: center;
+            border-top: 1px solid var(--secondary);
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                padding: 2rem 0;
+                gap: 1.5rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .menu-toggle:checked ~ nav {
+                display: flex;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .split-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .split-section .split-image {
+                order: 1;
+            }
+
+            .split-section .split-content {
+                order: 2;
+                text-align: center;
+            }
+
+            .hero-image-container img {
+                height: 50vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Earth & Heart</a>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-image-container">
+                <img src="WhatsApp Image 2026-02-05 at 20.25.00.jpeg" alt="Soft wedding portrait capturing a tender moment">
+            </div>
+            <div class="hero-content">
+                <h1>Capturing the Soul of the Moment</h1>
+                <p>From the quiet whispers of a wedding day to the rugged beauty of the open trail, we find the magic in every frame.</p>
+                <a href="portfolio.html" class="cta-button">Explore the Gallery</a>
+            </div>
+        </section>
+
+        <section class="split-section">
+            <div class="split-image">
+                <img src="WhatsApp Image 2026-02-05 at 20.25.31 (1).jpeg" alt="Natural rustic landscape with human connection">
+            </div>
+            <div class="split-content">
+                <h2>Natural Beauty, Human Connection</h2>
+                <p>Our photography is rooted in the earth and inspired by the heart. We specialize in capturing the rustic charm of rural life and the profound intimacy of family milestones.</p>
+                <a href="about.html" class="cta-button">Learn About Us</a>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <div class="video-content">
+                <h2>Life in Motion</h2>
+                <p>Moving stories captured with the same warmth and intention as our stills.</p>
+            </div>
+            <div class="video-container">
+                <video controls poster="WhatsApp Image 2026-02-05 at 20.25.00.jpeg">
+                    <source src="WhatsApp Video 2026-02-05 at 20.34.22.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Earth & Heart Photography. All rights reserved.</p>
+        <p style="margin-top: 1rem; opacity: 0.7;">Specializing in Rustic Weddings & Landscape Storytelling</p>
+    </footer>
+
+<meta name="wb-site" content="earth-heart-photography"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='earth-heart-photography';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
