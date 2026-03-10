@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Hayle Riding for Disabled</title>
+    <meta name="description" content="Empowering lives through equine therapy in Cornwall. Get in touch with Hayle RDA for riding or volunteering.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF3D00;
+            --secondary: #2979FF;
+            --accent: #FFEA00;
+            --background: #FFFFFF;
+            --text: #0D47A1;
+            --white: #FFFFFF;
+            --border-radius: 24px;
+            --thick-border: 8px solid #2979FF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        /* Sticky Oversized Header */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background: var(--white);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 6px solid var(--primary);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Nav Menu */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu Toggle */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 4px;
+            background: var(--text);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .contact-hero {
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .contact-hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-hero p {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .hero-img-container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .hero-img-container img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            border: var(--thick-border);
+            box-shadow: 20px 20px 0px var(--accent);
+        }
+
+        /* Main Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Form Styling */
+        .form-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            border: var(--thick-border);
+            box-shadow: 10px 10px 0px var(--secondary);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 3px solid #eee;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.2s ease, background 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        .submit-btn:hover {
+            background: #e63900;
+            transform: scale(1.02);
+        }
+
+        /* Info Styling */
+        .info-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .address-box {
+            background: var(--accent);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border: 4px solid var(--text);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-circle {
+            width: 50px;
+            height: 50px;
+            background: var(--text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+            
+            .hamburger {
+                display: flex;
+                z-index: 1001;
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--white);
+                padding: 6rem 2rem;
+                transition: 0.3s ease-in-out;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav a {
+                font-size: 1.5rem;
+            }
+
+            #menu-toggle:checked ~ nav {
+                right: 0;
+            }
+
+            #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+                transform: rotate(45deg) translate(7px, 7px);
+            }
+            #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -7px);
+            }
+
+            .form-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            HAYLE RDA
+        </a>
+
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="riders.html">Riders</a></li>
+                <li><a href="volunteers.html">Volunteers</a></li>
+                <li><a href="safeguarding.html">Safeguarding</a></li>
+                <li><a href="transparency.html">Transparency</a></li>
+                <li><a href="contact.html" style="color: var(--primary);">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <h1>Get in Touch</h1>
+            <p>Find us in Hayle, Cornwall TR27 6LN. Send us a message to join as a rider or volunteer and start your journey with us.</p>
+            <div class="hero-img-container">
+                <img src="IMG_0410.png" alt="Hayle RDA Welcome Sign">
+            </div>
+        </section>
+
+        <section class="contact-grid">
+            <div class="info-card">
+                <h2>Visit Our Stables</h2>
+                <div class="address-box">
+                    Hayle Riding for Disabled<br>
+                    Hayle, Cornwall<br>
+                    TR27 6LN
+                </div>
+                <p>We are conveniently located in the heart of Hayle, providing a safe and accessible environment for all our riders and volunteers.</p>
+                <div class="social-links">
+                    <a href="#" class="social-circle" aria-label="Facebook">FB</a>
+                    <a href="#" class="social-circle" aria-label="Instagram">IG</a>
+                    <a href="#" class="social-circle" aria-label="Twitter">TW</a>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <form action="#" method="POST">
+                    <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required placeholder="email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interest">I am interested in...</label>
+                        <select id="interest" name="interest" style="width: 100%; padding: 1rem; border-radius: 12px; border: 3px solid #eee; font-family: inherit;">
+                            <option value="riding">Riding Lessons</option>
+                            <option value="volunteering">Volunteering</option>
+                            <option value="donation">Donations/Sponsorship</option>
+                            <option value="general">General Enquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="How can we help you today?"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">HAYLE RDA</span>
+        <p>&copy; 2023 Hayle Riding for Disabled Association. All Rights Reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">Registered Charity in England and Wales.</p>
+    </footer>
+
+<meta name="wb-site" content="hayle-riding-for-disabled"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='hayle-riding-for-disabled';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

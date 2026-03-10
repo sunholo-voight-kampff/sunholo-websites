@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riders | Hayle Riding for Disabled</title>
+    <meta name="description" content="Empowering lives through equine therapy in Cornwall. Therapeutic riding for children and adults with physical and learning disabilities.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF3D00;
+            --secondary: #2979FF;
+            --accent: #FFEA00;
+            --background: #FFFFFF;
+            --text: #0D47A1;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--primary);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 100px;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: var(--accent);
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-family: var(--heading-font);
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-title-banner {
+            background: var(--secondary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title-banner h1 {
+            font-size: 4rem;
+            margin: 0;
+        }
+
+        /* Split Image Text Section */
+        .split-image-text {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 40px;
+            border: 12px solid var(--accent);
+            box-shadow: 15px 15px 0px var(--secondary);
+        }
+
+        .text-content h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .text-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Masonry Gallery Style */
+        .masonry-gallery {
+            background: #f8f8f8;
+            max-width: 100%;
+            border-radius: 60px 60px 0 0;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-header h2 {
+            font-size: 3rem;
+            color: var(--secondary);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            border: 8px solid var(--primary);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            padding: 2rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--heading-font);
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .split-image-text {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            .page-title-banner h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            #menu-toggle:checked ~ nav {
+                max-height: 500px;
+            }
+
+            #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+                transform: translateY(10px) rotate(45deg);
+            }
+
+            #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+
+            #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+                transform: translateY(-10px) rotate(-45deg);
+            }
+
+            .text-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">HAYLE RDA</a>
+        <div class="nav-wrapper">
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="riders.html" class="active">Riders</a></li>
+                    <li><a href="volunteers.html">Volunteers</a></li>
+                    <li><a href="safeguarding.html">Safeguarding</a></li>
+                    <li><a href="transparency.html">Transparency</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-title-banner">
+        <h1>Riders</h1>
+    </div>
+
+    <main>
+        <section class="split-image-text">
+            <div class="image-container">
+                <img src="IMG_7094.jpeg" alt="A rider enjoying a therapeutic session at Hayle RDA">
+            </div>
+            <div class="text-content">
+                <h2>Who Can Join?</h2>
+                <p>We provide therapeutic riding for children and adults with a wide range of physical and learning disabilities. Our sessions are designed to be inclusive, supportive, and above all, life-changing.</p>
+                <a href="contact.html" style="display:inline-block; background: var(--primary); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; font-family: var(--heading-font);">Enquire Today</a>
+            </div>
+        </section>
+
+        <section class="masonry-gallery">
+            <div class="gallery-header">
+                <h2>The Riding Experience</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="ccd856e5-7fa7-4852-a9f6-cd134171fcd5.jpeg" alt="Rider building skills and core strength">
+                </div>
+            </div>
+            <div class="gallery-caption">
+                <p>Building confidence, core strength, and lasting friendships through the power of equine therapy.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">HAYLE RDA</span>
+        <p>Hayle, Cornwall TR27 6LN</p>
+        <p>&copy; 2023 Hayle Riding for Disabled. All rights reserved.</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">
+            <a href="safeguarding.html" style="color: white;">Safeguarding Policy</a> | 
+            <a href="transparency.html" style="color: white;">Transparency & Reports</a>
+        </p>
+    </footer>
+
+<meta name="wb-site" content="hayle-riding-for-disabled"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='hayle-riding-for-disabled';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
