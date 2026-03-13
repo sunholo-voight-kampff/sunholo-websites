@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Wild Thistle & Moss | Edinburgh Floral Design</title>
+    <meta name="description" content="Bespoke floral arrangements and botanical styling in the heart of Edinburgh. Contact us for weddings, hospitality, and workshops.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Quicksand:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #BC6C25;
+            --secondary: #DDA15E;
+            --accent: #606C38;
+            --background: #FEFAE0;
+            --text: #283618;
+            --radius: 24px;
+            --heading-font: 'Cormorant Garamond', serif;
+            --body-font: 'Quicksand', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            font-family: var(--body-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font);
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        header {
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 2rem;
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            border-top: 1px solid rgba(40, 54, 24, 0.1);
+            border-bottom: 1px solid rgba(40, 54, 24, 0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: var(--text);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-list a:hover {
+            color: var(--primary);
+        }
+
+        /* Hamburger Toggle */
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-toggle-label {
+            display: none;
+            cursor: pointer;
+            padding: 1rem;
+        }
+
+        /* Form Section */
+        .section {
+            padding: 4rem 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .centered-text {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-container {
+            background: #fff;
+            padding: 3rem;
+            border-radius: var(--radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            font-family: var(--body-font);
+            background: #fdfdfd;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 1.2rem;
+            border-radius: var(--radius);
+            font-family: var(--body-font);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .info-card {
+            padding: 2rem;
+            border-radius: var(--radius);
+            background: rgba(221, 161, 94, 0.1);
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-toggle-label {
+                display: block;
+                position: absolute;
+                top: 2rem;
+                right: 1.5rem;
+                z-index: 100;
+            }
+
+            .nav-toggle-label span,
+            .nav-toggle-label span::before,
+            .nav-toggle-label span::after {
+                display: block;
+                background: var(--text);
+                height: 2px;
+                width: 25px;
+                position: relative;
+            }
+
+            .nav-toggle-label span::before,
+            .nav-toggle-label span::after {
+                content: '';
+                position: absolute;
+            }
+
+            .nav-toggle-label span::before { top: -8px; }
+            .nav-toggle-label span::after { bottom: -8px; }
+
+            .nav-list {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background);
+                padding: 2rem 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                z-index: 99;
+            }
+
+            .nav-toggle:checked ~ .nav-list {
+                display: flex;
+            }
+
+            .contact-container {
+                padding: 1.5rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">Wild Thistle & Moss</a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+        </label>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <div class="centered-text">
+                <h2>Get in Touch</h2>
+                <p>Have a question or want to book a consultation? Fill out the form below and we'll get back to you within 48 hours.</p>
+            </div>
+
+            <div class="contact-container">
+                <form action="#" method="POST">
+                    <input type="text" name="_hp" style="display:none" tabindex="-1" autocomplete="off">
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="hello@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="event-type">Event Type</label>
+                        <select id="event-type" name="event-type">
+                            <option value="wedding">Wedding</option>
+                            <option value="hospitality">Hospitality Styling</option>
+                            <option value="workshop">Workshop Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your vision..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Enquiry</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="centered-text">
+                <h2>Visit Our Studio</h2>
+                <p>Located in the heart of Edinburgh, our studio is open by appointment for consultations.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Address</h3>
+                    <p>123 Leith Walk,<br>Edinburgh</p>
+                </div>
+                <div class="info-card">
+                    <h3>Hours</h3>
+                    <p>Mon-Fri: 9am - 5pm<br>Sat-Sun: Closed</p>
+                </div>
+                <div class="info-card">
+                    <h3>Email</h3>
+                    <p>hello@wildthistleandmoss.co.uk</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Wild Thistle & Moss. Inspired by the Scottish landscape.</p>
+    </footer>
+
+<meta name="wb-site" content="wild-thistle-moss-edinburgh-floral-design"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='wild-thistle-moss-edinburgh-floral-design';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
