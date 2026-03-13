@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the elite team and equine partners at Cornish Crest Equestrian, a luxury stable in the heart of Cornwall.">
+    <title>Meet the Herd | Cornish Crest Equestrian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C3E2E;
+            --secondary: #A8B5A2;
+            --accent: #D4AF37;
+            --background: #F9F7F2;
+            --text: #333333;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* --- Navigation --- */
+        header {
+            background: var(--white);
+            border-bottom: 3px double var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            font-size: 2.2rem;
+            text-decoration: none;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .nav-logo::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: var(--accent);
+            margin: 5px auto 0;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            padding-top: 1rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+            font-weight: 700;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .nav-toggle {
+            display: none;
+        }
+
+        /* --- Hero Section --- */
+        .hero-banner {
+            padding: 100px 20px 60px;
+            text-align: center;
+            background: linear-gradient(rgba(249, 247, 242, 0.8), rgba(249, 247, 242, 0.8)), url('stable-life-1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-banner h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-banner p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--primary);
+        }
+
+        /* --- Team Grid --- */
+        .section-container {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::before {
+            content: '✧';
+            display: block;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .team-card {
+            background: var(--white);
+            padding: 30px;
+            text-align: center;
+            border: 1px solid var(--secondary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.4s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .team-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .team-card p {
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        /* --- Masonry Gallery --- */
+        .masonry-gallery {
+            columns: 3 300px;
+            column-gap: 20px;
+            margin-top: 40px;
+        }
+
+        .masonry-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            transition: filter 0.5s ease, transform 0.8s ease;
+            filter: brightness(0.95);
+        }
+
+        .masonry-item:hover img {
+            filter: brightness(1.05) contrast(1.05);
+            transform: scale(1.03);
+        }
+
+        .shimmer-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.05) 0%, transparent 50%, rgba(212, 175, 55, 0.05) 100%);
+            pointer-events: none;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            .nav-toggle:checked ~ .nav-menu {
+                display: flex;
+            }
+
+            .nav-toggle-label {
+                cursor: pointer;
+                padding: 10px;
+                display: block;
+            }
+
+            .nav-toggle-label span {
+                display: block;
+                width: 25px;
+                height: 2px;
+                background: var(--primary);
+                position: relative;
+            }
+
+            .nav-toggle-label span::before, .nav-toggle-label span::after {
+                content: '';
+                position: absolute;
+                width: 25px;
+                height: 2px;
+                background: var(--primary);
+                left: 0;
+            }
+
+            .nav-toggle-label span::before { top: -8px; }
+            .nav-toggle-label span::after { bottom: -8px; }
+
+            .hero-banner h1 {
+                font-size: 2.5rem;
+            }
+
+            .masonry-gallery {
+                columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">CORNISH CREST</a>
+            
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lessons-hacks.html">Lessons & Hacks</a></li>
+                <li><a href="pony-parties.html">Pony Parties</a></li>
+                <li><a href="our-stable.html">Meet the Herd</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-banner">
+            <h1>Meet the Herd</h1>
+            <p>A refined collection of equine talent and professional expertise, dedicated to the art of riding.</p>
+        </section>
+
+        <section class="section-container">
+            <h2 class="section-title">Our Instructors & Equine Partners</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <h3>Elite BHS Instructors</h3>
+                    <p>Highly qualified BHS instructors bringing decades of competitive experience and a gentle, encouraging teaching philosophy to every lesson.</p>
+                </div>
+                <div class="team-card">
+                    <h3>Dependable Partners</h3>
+                    <p>The most dependable ponies in Cornwall, chosen for their temperament, grace, and willingness to guide riders through the coastal trails.</p>
+                </div>
+                <div class="team-card">
+                    <h3>Specialist Care</h3>
+                    <p>Our stable management team ensures every horse lives a life of luxury, with premium nutrition and coastal turnout.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-container">
+            <h2 class="section-title">Life at the Stables</h2>
+            <div class="masonry-gallery">
+                <div class="masonry-item">
+                    <img src="stable-life-1.jpg" alt="A serene morning view of the Cornish Crest stables">
+                    <div class="shimmer-overlay"></div>
+                </div>
+                <div class="masonry-item">
+                    <img src="horse-portrait.jpg" alt="A portrait of one of our champion ponies">
+                    <div class="shimmer-overlay"></div>
+                </div>
+                <div class="masonry-item">
+                    <img src="stable-life-2.jpg" alt="Horses grazing in the lush green fields of Cornwall">
+                    <div class="shimmer-overlay"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">Cornish Crest Equestrian</span>
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="lessons-hacks.html">Lessons</a></li>
+            <li><a href="contact.html">Bookings</a></li>
+        </ul>
+        <p style="font-size: 0.75rem; color: var(--secondary); opacity: 0.7;">&copy; 2023 Cornish Crest Equestrian. Timeless Elegance in the Heart of Cornwall.</p>
+    </footer>
+
+<meta name="wb-site" content="cornish-crest-equestrian"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='cornish-crest-equestrian';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

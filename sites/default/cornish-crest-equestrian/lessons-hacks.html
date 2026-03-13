@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cornish Crest Equestrian - Premium riding lessons, coastal hacks, and magical pony parties in Cornwall.">
+    <title>Lessons & Hacks | Cornish Crest Equestrian</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C3E2E;
+            --secondary: #A8B5A2;
+            --accent: #D4AF37;
+            --background: #F9F7F2;
+            --text: #333333;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        header {
+            background: var(--white);
+            border-bottom: 3px double var(--accent);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            border-top: 1px solid var(--secondary);
+            padding-top: 15px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .page-hero {
+            padding: 80px 0 40px;
+            text-align: center;
+            background: linear-gradient(rgba(249, 247, 242, 0.8), rgba(249, 247, 242, 0.8)), url('moorland-trail.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-hero p {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Features Grid */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin: 15px auto 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #eee;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Pricing Table */
+        .pricing-section {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .pricing-section h2 {
+            color: var(--accent);
+        }
+
+        .pricing-table {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .pricing-item {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--accent);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .price-tag {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--accent);
+            margin: 20px 0;
+            display: block;
+        }
+
+        .pricing-item p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        /* Carousel Styling */
+        .carousel-container {
+            width: 100%;
+            overflow-x: auto;
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-image {
+            flex: 0 0 80%;
+            scroll-snap-align: center;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .carousel-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            filter: sepia(20%);
+            transition: filter 0.5s ease;
+        }
+
+        .carousel-image:hover img {
+            filter: sepia(0%);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--white);
+            padding: 60px 0;
+            border-top: 1px solid var(--secondary);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-info {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                gap: 15px;
+            }
+
+            .hamburger {
+                display: block;
+                margin-top: 10px;
+            }
+
+            #menu-check:checked ~ .nav-menu {
+                display: flex;
+            }
+
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .carousel-image {
+                flex: 0 0 90%;
+            }
+
+            .carousel-image img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">CORNISH CREST<br><small style="font-size: 0.5em; letter-spacing: 4px;">EQUESTRIAN</small></a>
+            
+            <input type="checkbox" id="menu-check" class="menu-toggle">
+            <label for="menu-check" class="hamburger">&#9776;</label>
+
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="lessons-hacks.html">Lessons & Hacks</a></li>
+                    <li><a href="pony-parties.html">Pony Parties</a></li>
+                    <li><a href="our-stable.html">Our Stable</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Lessons & Hacks</h1>
+                <p>An investment in elegance, skill, and the soul of the horse.</p>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Equestrian Disciplines</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Dressage Mastery</h3>
+                        <p>Focus on the harmony of movement and subtle communication between rider and horse.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Show Jumping</h3>
+                        <p>Develop precision, timing, and confidence over our custom-built course.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Coastal Exploration</h3>
+                        <p>Experience the freedom of the Cornish cliffs and the rhythmic thunder of hooves on sand.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding pricing-section">
+            <div class="container">
+                <h2 class="section-title">Investment in Excellence</h2>
+                <div class="pricing-table">
+                    <article class="pricing-item">
+                        <h3>Private Lessons</h3>
+                        <span class="price-tag">£65</span>
+                        <p>One-on-one intensive instruction with a senior BHS coach.</p>
+                    </article>
+                    <article class="pricing-item">
+                        <h3>Group Sessions</h3>
+                        <span class="price-tag">£45</span>
+                        <p>Collaborative learning in small, skill-matched cohorts.</p>
+                    </article>
+                    <article class="pricing-item">
+                        <h3>Coastal Hacks</h3>
+                        <span class="price-tag">£85</span>
+                        <p>Extended guided tours through the St. Agnes cliffs and moors.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2 class="section-title">Our Scenic Trails</h2>
+                <div class="carousel-container">
+                    <div class="carousel-image">
+                        <img src="moorland-trail.jpg" alt="Rider navigating the purple heather of the Cornish moors">
+                    </div>
+                    <div class="carousel-image">
+                        <img src="beach-canter.jpg" alt="Horse cantering through the surf at sunset">
+                    </div>
+                    <div class="carousel-image">
+                        <img src="woodland-path.jpg" alt="Serene horse walk through ancient Cornish woodland">
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 20px; font-style: italic; color: var(--secondary);">Swipe to explore our vistas</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span class="footer-logo">Cornish Crest Equestrian</span>
+            <p class="footer-info">St. Agnes, Cornwall | Established 2009</p>
+            <p class="footer-info" style="margin-top: 20px;">&copy; 2023 Cornish Crest Equestrian. All rights reserved.</p>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="cornish-crest-equestrian"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='cornish-crest-equestrian';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

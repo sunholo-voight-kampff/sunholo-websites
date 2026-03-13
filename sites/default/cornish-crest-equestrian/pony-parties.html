@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Pony Parties | Cornish Crest Equestrian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C3E2E;
+            --secondary: #A8B5A2;
+            --accent: #D4AF37;
+            --background: #F9F7F2;
+            --text: #333333;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: capitalize;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--secondary);
+            position: relative;
+        }
+
+        .header-top {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 0 1rem;
+        }
+
+        .site-title {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .site-title::before, .site-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .site-title::before { left: -70px; }
+        .site-title::after { right: -70px; }
+
+        nav {
+            border-top: 1px solid var(--accent);
+            border-bottom: 1px solid var(--accent);
+            padding: 10px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: var(--primary);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-list a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu Toggle */
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 10px;
+            color: var(--primary);
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .story-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .story-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .story-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        .story-image-wrapper {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .story-image-wrapper img {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            box-shadow: 20px 20px 0 var(--secondary);
+            filter: soft-light;
+        }
+
+        .shimmer-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(212,175,55,0.1) 50%, rgba(255,255,255,0) 100%);
+            pointer-events: none;
+        }
+
+        /* Features Grid */
+        .features-section {
+            padding: 5rem 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .features-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .features-section h2::after {
+            content: '✧';
+            display: block;
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            padding: 3rem 2rem;
+            border: 1px solid #eee;
+            background: var(--background);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 250px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+            border: none;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .footer-info {
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.5;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .site-title::before, .site-title::after {
+                display: none;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-list {
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                background: var(--white);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+            }
+
+            .nav-list li {
+                border-bottom: 1px solid #f0f0f0;
+                text-align: center;
+            }
+
+            .nav-list a {
+                display: block;
+                padding: 15px 0;
+            }
+
+            #menu-toggle:checked ~ .nav-list {
+                display: flex;
+            }
+
+            .story-section {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 3rem 0;
+            }
+
+            .story-image-wrapper img {
+                box-shadow: 10px 10px 0 var(--secondary);
+            }
+
+            .story-content h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <h1 class="site-title">Cornish Crest</h1>
+                <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--secondary);">Equestrian Excellence</p>
+            </div>
+            
+            <label for="menu-toggle" class="menu-icon">&#9776; Menu</label>
+            <input type="checkbox" id="menu-toggle">
+            
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="lessons-hacks.html">Lessons & Hacks</a></li>
+                    <li><a href="pony-parties.html">Pony Parties</a></li>
+                    <li><a href="our-stable.html">Meet the Herd</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Story Section -->
+        <section class="container">
+            <div class="story-section">
+                <div class="story-content">
+                    <h2>A Sparkly Celebration</h2>
+                    <p>Our 'Sparkle & Shine' parties offer a unique experience where children can groom our gentlest ponies with eco-friendly glitter and flower crowns. Set against the backdrop of the Cornish coast, these celebrations bring a touch of enchantment to every child's special day.</p>
+                    <a href="contact.html" class="btn">Inquire Now</a>
+                </div>
+                <div class="story-image-wrapper">
+                    <img src="glitter-pony.jpg" alt="A gentle pony adorned with eco-friendly glitter and flower crowns">
+                    <div class="shimmer-overlay"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="features-section">
+            <div class="container">
+                <h2>Party Packages</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>The Enchanted Forest</h3>
+                        <p>Magical Woodland Adventure</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>The Shimmering Stable</h3>
+                        <p>Elegant Social & Grooming</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>The Coastal Knight</h3>
+                        <p>A Brave Quest by the Sea</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Cornish Crest Equestrian</div>
+            <div class="footer-info">
+                <p>St. Agnes, Cornwall</p>
+                <p>Tuesday - Sunday: 8:00 AM - 6:00 PM</p>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Cornish Crest Equestrian. All Rights Reserved. 
+            </div>
+        </div>
+    </footer>
+
+<meta name="wb-site" content="cornish-crest-equestrian"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='cornish-crest-equestrian';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>

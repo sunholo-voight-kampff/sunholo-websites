@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornish Crest Equestrian | Elegance in Every Stride</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C3E2E;
+            --secondary: #A8B5A2;
+            --accent: #D4AF37;
+            --background: #F9F7F2;
+            --text: #333333;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background: var(--white);
+            padding: 20px 0;
+            border-bottom: 3px double var(--accent);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: block;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: var(--primary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Menu */
+        #nav-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(0.7);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(44, 62, 46, 0.4);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            border: 1px solid var(--accent);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        /* --- Stats Bar --- */
+        .stats-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 2px solid var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .stats-bar h2 {
+            color: var(--accent);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .stats-content {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- Split Section --- */
+        .split-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            gap: 60px;
+        }
+
+        .split-image {
+            flex: 1 1 500px;
+            position: relative;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 2px;
+            box-shadow: 20px 20px 0 var(--secondary);
+            mask-image: radial-gradient(circle, black 70%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%);
+        }
+
+        .split-image::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .split-text {
+            flex: 1 1 400px;
+        }
+
+        .split-text h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .split-text h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin-top: 10px;
+        }
+
+        .split-text p {
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-links {
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            margin: 0 15px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 25px;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+            }
+
+            #nav-toggle:checked ~ nav {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 20px 0;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .split-section {
+                margin: 40px auto;
+                gap: 30px;
+            }
+
+            .split-image img {
+                box-shadow: 10px 10px 0 var(--secondary);
+            }
+            
+            .split-text h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Shimmer Animation */
+        @keyframes shimmer {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+            100% { opacity: 0.3; }
+        }
+        .shimmer-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%);
+            animation: shimmer 4s infinite ease-in-out;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="logo">Cornish Crest</span>
+        <input type="checkbox" id="nav-toggle">
+        <label for="nav-toggle" class="hamburger" aria-label="Toggle Menu">&#9776;</label>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="lessons-hacks.html">Lessons & Hacks</a></li>
+                    <li><a href="pony-parties.html">Pony Parties</a></li>
+                    <li><a href="our-stable.html">Meet the Herd</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="stable-hero.jpg" alt="Elite riding stable in Cornwall" class="hero-image">
+            <div class="shimmer-overlay"></div>
+            <div class="hero-content">
+                <h1>Elegance in Every Stride</h1>
+                <p>Experience the magic of the Cornish coast from the saddle. At Cornish Crest, we blend professional instruction with the natural beauty of the moors.</p>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <h2>Our Legacy</h2>
+            <div class="stats-content">
+                15 Years of Excellence &nbsp;|&nbsp; 25 Champion Ponies &nbsp;|&nbsp; 100% Safety Record
+            </div>
+        </section>
+
+        <!-- Split Image/Text Section -->
+        <section class="split-section">
+            <div class="split-image">
+                <img src="coastal-view.jpg" alt="Shimmering Atlantic horizon from horseback">
+            </div>
+            <div class="split-text">
+                <h2>The Sparkle of the Coast</h2>
+                <p>From the shimmering Atlantic horizon to the glint of morning dew on the trails, every ride is a journey into the extraordinary. Our coastal hacks are designed for those who seek both tranquility and the thrill of the ocean breeze.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="footer-logo">Cornish Crest Equestrian</span>
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="lessons-hacks.html">Lessons</a>
+            <a href="pony-parties.html">Parties</a>
+            <a href="our-stable.html">The Herd</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p class="copyright">&copy; 2023 Cornish Crest Equestrian. A refined sanctuary for horse and rider.</p>
+    </footer>
+
+<meta name="wb-site" content="cornish-crest-equestrian"><script data-wb-form>
+(function(){var EP='https://ailang-dev-website-builder-ejjw6zt3bq-ew.a.run.app/api/form-submit';if(!EP)return;
+document.addEventListener('submit',function(e){
+var f=e.target;if(!f||f.tagName!=='FORM')return;e.preventDefault();
+var fd=new FormData(f),fields={};fd.forEach(function(v,k){fields[k]=v;});
+var hp=f.querySelector('input[name="_hp"]');if(hp&&hp.value){fields._hp=hp.value;}
+var page='unknown';try{var p=location.pathname.split('/').pop().replace('.html','');if(p)page=p;if(page==='index')page='home';}catch(x){}
+var site='cornish-crest-equestrian';
+var btn=f.querySelector('[type="submit"]'),orig=btn?btn.textContent:'';
+if(btn){btn.disabled=true;btn.textContent='Sending...';}
+var prev=f.querySelector('.wb-form-status');if(prev)prev.remove();
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json'},
+body:JSON.stringify({site:site,page:page,fields:fields,submittedAt:new Date().toISOString()})
+}).then(function(r){return r.json()}).then(function(d){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;';
+if(d.ok){el.style.background='#E8F5E9';el.style.color='#2E7D32';el.style.border='1px solid #A5D6A7';
+el.textContent=d.message||'Thank you!';f.reset();}
+else{el.style.background='#FFF3E0';el.style.color='#E65100';el.style.border='1px solid #FFCC80';
+el.textContent=d.message||'Something went wrong.';}
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}
+}).catch(function(){
+var el=document.createElement('div');el.className='wb-form-status';
+el.style.cssText='padding:1rem;margin-top:1rem;border-radius:8px;text-align:center;font-weight:600;background:#FFF3E0;color:#E65100;border:1px solid #FFCC80;';
+el.textContent=location.protocol==='file:'?'Form submission requires hosting.':'Could not submit form. Please try again later.';
+f.appendChild(el);if(btn){btn.disabled=false;btn.textContent=orig;}});
+},true);})();
+</script></body>
+</html>
